@@ -5,18 +5,18 @@ import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import heroPic from '../public/tangerine-newt-RgT22Ixcq4Y-unsplash-min.jpg'
-import logo from '../public/vercel.svg'
+import logo from '../public/logo.png'
 
 const navigation = [
-    { name: 'Product', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
+    { name: 'Home', href: '#' },
+    { name: 'Analyze', href: '#' },
+    { name: 'Shop', href: '#' },
+    { name: 'Contact', href: '#' },
 ]
 
 export default function Hero() {
     return (
-        <div className="relative overflow-hidden bg-white">
+        <div className="relative overflow-hidden bg-white 2xl:width-full">
             <div className="mx-auto max-w-7xl">
                 <div className="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
                     <svg
@@ -37,10 +37,10 @@ export default function Hero() {
                                         <a href="#">
                                             <span className="sr-only">NutriFacts</span>
                                             <Image
-                                                width={100}
-                                                height={100}
+                                                // width={500}
+                                                // height={500}
                                                 alt="Your Company"
-                                                className="h-8 w-auto sm:h-10"
+                                                className="h-12 w-auto sm:h-8 md:h-20 lg:h-24 xl:h-28 2xl:h-28"
                                                 src={logo}
                                             />
                                         </a>
@@ -82,9 +82,9 @@ export default function Hero() {
                                     <div className="flex items-center justify-between px-5 pt-4">
                                         <div>
                                             <Image
-                                                className="h-8 w-auto"
-                                                width={100}
-                                                height={100}
+                                                className="w-full"
+                                                width={70}
+                                                height={70}
                                                 src={logo}
                                                 alt=""
                                             />
@@ -152,8 +152,8 @@ export default function Hero() {
             </div>
             <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
                 <Image
-                    width={300}
-                    height={300}
+                    // width={300}
+                    // height={300}
                     className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
                     src={heroPic}
                     alt=""
