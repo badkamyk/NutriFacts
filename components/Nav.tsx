@@ -20,14 +20,14 @@ export default function Nav() {
             </Navbar.Brand>
             <div className="flex md:order-2">
                 <Button className={"mr-6 text-md xl:p-2"}>
-                    <span className={"xl:text-lg"}>Shop</span>
+                    <span className={"md:text-md lg:text-lg xl:text-xl 2xl:text-2xl"}>Shop</span>
                 </Button>
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
-                    href="/navbars"
+                    href="/"
                     active={pathname === "/"}
                 >
                     Home
@@ -47,7 +47,7 @@ export default function Nav() {
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
                     href="/navbars">
-                    Cart
+                    Shop
                 </Navbar.Link>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
