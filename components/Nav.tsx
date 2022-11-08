@@ -5,7 +5,7 @@ import { Navbar, Button } from "flowbite-react";
 import Image from 'next/image';
 
 
-export const Nav = () => {
+export default function Nav() {
     return (
         <Navbar
             fluid={true}
