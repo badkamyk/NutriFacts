@@ -3,9 +3,11 @@
 
 import { Navbar, Button } from "flowbite-react";
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 
 export default function Nav() {
+    const pathname = usePathname();
     return (
         <Navbar
             fluid={true}
@@ -26,13 +28,15 @@ export default function Nav() {
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
                     href="/navbars"
-                    active={true}
+                    active={pathname === "/"}
                 >
                     Home
                 </Navbar.Link>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
-                    href="/navbars">
+                    href="/analyze"
+                    active={pathname === "/analyze"}
+                >
                     Nutrition analysis
                 </Navbar.Link>
                 {/* <Navbar.Link
