@@ -1,6 +1,43 @@
-export default function SearchInput() {
+'use client'
+import { useState } from "react";
+import { IngredientType } from "../components/types/IngredientType";
+
+export default function SearchInput({ setIngredients }: { setIngredients: (ingredients: Array<IngredientType>) => void }) {
+    const [search, setSearch] = useState("");
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value);
+    }
+
+    const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const respone = await fetch("../mealData.json");
+        const data = await respone.json();
+        setIngredients(data.items);
+        console.log(data.items)
+    }
+
+    // const onSubmitForm = async (e: any) => {
+    //     e.preventDefault();
+    //     try {
+    //         const body = {search};
+    //         const response = await fetch("http://localhost:5000/ingredients", {
+    //             method: "GET",
+    //             headers: {
+    //                 'X-Api-Key': 'YOUR_API_KEY',
+    //                 "Content-Type": "application/json"
+    //             },
+    //             body: JSON.stringify(body)
+    //         });
+    //         const parseRes = await response.json();
+    //         setIngredients(parseRes);
+    //     } catch (err) {
+    //         console.error(err.message);
+    //     }
+    // }
+
     return (
-        <form className="px-3">
+        <form onSubmit={onSubmitForm} className="px-3">
             <label htmlFor="default-search"
                 className="mb-2 text-sm  md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
             <div className="relative">
@@ -11,7 +48,7 @@ export default function SearchInput() {
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
                 </div>
-                <input type="search" id="default-search"
+                <input onChange={handleSearch} value={search} type="search" id="default-search"
                     className="block p-4 pl-10 w-full text-sm md:text-md lg:text-md xl:text-lg 2xl:text-xl text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Type in ingredients" required />
                 <button type="submit"
