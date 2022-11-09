@@ -13,3 +13,4 @@ export type IngredientType = {
     protein_g: number;
     carbohydrates_total_g: number;
 }
+
