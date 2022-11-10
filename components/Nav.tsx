@@ -39,11 +39,11 @@ export default function Nav() {
                 >
                     Nutrition analysis
                 </Navbar.Link>
-                {/* <Navbar.Link
+                <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
-                    href="/navbars">
-                    Our products
-                </Navbar.Link> */}
+                    href="/find-recipe">
+                    Find a recipe
+                </Navbar.Link>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
                     href="/shop">

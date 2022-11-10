@@ -1,40 +1,40 @@
 'use client'
 import { useState } from "react";
-import { IngredientType } from "../components/types/IngredientType";
+import { IngredientType } from "./types/IngredientType";
 
 export default function SearchInput({ setIngredients }: { setIngredients: (ingredients: Array<IngredientType>) => void }) {
     const [search, setSearch] = useState("");
-
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
     }
 
+    // const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
+    //     const respone = await fetch("../mealData.json");
+    //     const data = await respone.json();
+    //     setIngredients(data.items);
+    //     console.log(data.items)
+    // }
+
     const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const respone = await fetch("../mealData.json");
-        const data = await respone.json();
-        setIngredients(data.items);
-        console.log(data.items)
+        try {
+            const response = await fetch(`https://api.calorieninjas.com/v1/nutrition?query=${search}`, {
+                method: "GET",
+                headers: {
+                    'X-Api-Key': 'YOUR_API_KEY',
+                    "Content-Type": "application/json"
+                },
+            });
+            const parseRes = await response.json();
+            console.log(parseRes);
+            setIngredients(parseRes.items);
+        } catch (err) {
+            if (err instanceof Error) {
+                console.log(err.message);
+            }
+        }
     }
-
-    // const onSubmitForm = async (e: any) => {
-    //     e.preventDefault();
-    //     try {
-    //         const body = {search};
-    //         const response = await fetch("http://localhost:5000/ingredients", {
-    //             method: "GET",
-    //             headers: {
-    //                 'X-Api-Key': 'YOUR_API_KEY',
-    //                 "Content-Type": "application/json"
-    //             },
-    //             body: JSON.stringify(body)
-    //         });
-    //         const parseRes = await response.json();
-    //         setIngredients(parseRes);
-    //     } catch (err) {
-    //         console.error(err.message);
-    //     }
-    // }
 
     return (
         <form onSubmit={onSubmitForm} className="px-3">

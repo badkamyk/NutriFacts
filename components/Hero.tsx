@@ -11,6 +11,7 @@ import logo from '../public/logo.png'
 const navigation = [
     {name: 'Home', href: '/'},
     {name: 'Analyze', href: '/analyze'},
+    {name: 'Find recipe', href: '/find-recipe'},
     {name: 'Shop', href: '/shop'},
     {name: 'Contact', href: '/contact'},
 ]
