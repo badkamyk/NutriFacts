@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import {useRef, useState} from "react";
 import { IngredientType } from "./types/IngredientType";
 
 export default function SearchInput({ setIngredients }: { setIngredients: (ingredients: Array<IngredientType>) => void }) {
@@ -7,6 +7,9 @@ export default function SearchInput({ setIngredients }: { setIngredients: (ingre
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
     }
+    const [chosenCategory, setChosenCategory] = useState("nutrition");
+    const [buttonText, setButtonText] = useState("Analyze");
+    const inputRef = useRef(null);
 
     // const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     //     e.preventDefault();

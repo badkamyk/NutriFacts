@@ -1,7 +1,6 @@
 'use client'
 import SearchInput from "../../../components/SearchInput";
 import ProductInfo from "../../../components/ProductInfo";
-import ResultTable from "../../../components/ResultTable";
 import { useState } from "react";
 import { IngredientType } from "../../../components/types/IngredientType";
 
