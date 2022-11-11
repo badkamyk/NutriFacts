@@ -3,9 +3,12 @@ import SearchInput from "../../../components/SearchInput";
 import ProductInfo from "../../../components/ProductInfo";
 import { useState } from "react";
 import { IngredientType } from "../../../components/types/IngredientType";
+import {RecipeType} from "../../../components/types/RecipeType";
+
 
 export default function Page() {
     const [ingredients, setIngredients] = useState<Array<IngredientType>>([]);
+    const [recipe, setRecipe] = useState<Array<RecipeType>>([]);
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -19,9 +22,10 @@ export default function Page() {
                 </p>
             </header>
             <main>
-                <SearchInput setIngredients={setIngredients} />
+                <SearchInput setIngredients={setIngredients}/>
                 <div className="flex gap-3 flex-wrap px-3 mt-6 mx-auto">
-                    <ProductInfo ingredients={ingredients} />
+                    {<ProductInfo ingredients={ingredients} />}
+                    {/*{ingredients.length > 0 ? <ProductInfo ingredients={ingredients} /> : <RecipeInfo recipe={recipe} />}*/}
                 </div>
             </main>
         </div>
