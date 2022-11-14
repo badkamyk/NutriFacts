@@ -6,9 +6,6 @@ import { IngredientType } from "../../../components/types/IngredientType";
 import { RecipeType } from "../../../components/types/RecipeType";
 
 
-// This page is gonna be mostly changed.
-
-
 type SearchType = {
     setIngredients?: React.Dispatch<React.SetStateAction<IngredientType[]>>;
     setRecipe?: React.Dispatch<React.SetStateAction<RecipeType[]>>;
@@ -27,21 +24,29 @@ export default function FindRecipe({ setIngredients, setRecipe }: SearchType) {
         setSearch(e.target.value);
     }
 
+
     const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://api.calorieninjas.com/v1/${chosenCategory}?query=${search}`, {
-                method: "GET",
-                headers: {
-                    'X-Api-Key': 'YOUR_API_KEY',
-                    "Content-Type": "application/json",
-                },
-            });
-            const parseRes = await response.json();
-            if (chosenCategory === "nutrition" && setIngredients) {
-                setIngredients(parseRes.items);
-            } else if (chosenCategory === "recipe" && setRecipe) {
-                setRecipe(parseRes);
+            if (chosenCategory === "nutrition") {
+                const response = await fetch(`https://api.calorieninjas.com/v1/nutrition?query=${search}`, {
+                    method: "GET",
+                    headers: {
+                        'X-Api-Key': 'YOUR_API_KEY',
+                        "Content-Type": "application/json",
+                    },
+                });
+                const parseRes = await response.json();
+                setIngredients && setIngredients(parseRes.items);
+            } else if (chosenCategory === "recipe") {
+                const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=1`, {
+                    method: "GET",
+                    headers: {
+                        'x-api-key': 'YOUR_API_KEY',
+                    },
+                });
+                const parseRes = await response.json();
+                setRecipe && setRecipe(parseRes);
             }
         } catch (err) {
             if (err instanceof Error) {

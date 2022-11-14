@@ -4,11 +4,16 @@ import ProductInfo from "../../../components/ProductInfo";
 import { useState } from "react";
 import { IngredientType } from "../../../components/types/IngredientType";
 import {RecipeType} from "../../../components/types/RecipeType";
+import RecipeInfo from "../../../components/RecipeInfo";
+
 
 
 export default function Page() {
     const [ingredients, setIngredients] = useState<Array<IngredientType>>([]);
     const [recipe, setRecipe] = useState<Array<RecipeType>>([]);
+    const [chosenCategory, setChosenCategory] = useState("nutrition");
+    console.log(ingredients);
+    console.log(recipe);
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -17,15 +22,17 @@ export default function Page() {
                  lg:text-6xl dark:text-white">Analyze
                     your meal</h1>
                 <p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
-                    Type in your ingredients and we will analyze the nutrition facts of your meal.
-                    If no quantity is specified, the default quantity is 100 grams.
+                    {chosenCategory === "nutrition" ? "Type in your ingredients and we will analyze the nutrition facts" +
+                        " of your meal. If no quantity is specified, the default quantity is 100 grams."
+                        : "Type in your ingredients and we will find recipes in our database that match your ingredients."}
                 </p>
             </header>
             <main>
-                <SearchInput setIngredients={setIngredients}/>
+                <SearchInput setIngredients={setIngredients} setRecipe={setRecipe} chosenCategory={chosenCategory} setChosenCategory={setChosenCategory}/>
                 <div className="flex gap-3 flex-wrap px-3 mt-6 mx-auto">
-                    {<ProductInfo ingredients={ingredients} />}
+                    {/*{<ProductInfo ingredients={ingredients} />}*/}
                     {/*{ingredients.length > 0 ? <ProductInfo ingredients={ingredients} /> : <RecipeInfo recipe={recipe} />}*/}
+                    {chosenCategory === "nutrition" ? <ProductInfo ingredients={ingredients} /> : <RecipeInfo recipe={recipe} />}
                 </div>
             </main>
         </div>
