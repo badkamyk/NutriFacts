@@ -41,8 +41,8 @@ export default function Nav() {
                 </Navbar.Link>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
-                    href="/find-recipe">
-                    Find a recipe
+                    href="/meal-planner">
+                    Meal planner
                 </Navbar.Link>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}

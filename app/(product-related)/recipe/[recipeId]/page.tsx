@@ -8,11 +8,12 @@ async function getRecipe(id: string) {
     return res.json();
 }
 
-const grayTickSVG = <svg className="inline w-4 h-4 mr-1.5 text-gray-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"
+const grayTickSVG = <svg className="inline w-4 h-4 mr-1.5 text-gray-400 flex-shrink-0" fill="currentColor"
+                         viewBox="0 0 20 20"
                          xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd"
+    <path fillRule="evenodd"
           d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-          clip-rule="evenodd"></path>
+          clipRule="evenodd"></path>
 </svg>
 
 const greenTickSVG = <svg className="inline w-4 h-4 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0"
@@ -25,23 +26,28 @@ const greenTickSVG = <svg className="inline w-4 h-4 mr-1.5 text-green-500 dark:t
 
 function Details(details: RecipeDetailts) {
     return (
-        // <ul>
-        //     {details.extendedIngredients.map((ingredient) => (
-        //         <li key={ingredient.id}>{ingredient.name}</li>
-        //     ))}
-        // </ul>
-        <div className="p-3">
+        <div className="p-3 max-w-full">
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white mb-12">{details.title}</h1>
-            <div className="md:flex lg:flex xl:flex 2xl:flex gap-9">
-                <img src={details.image} alt={details.title} width={500} height={500}/>
-                <div>
+            <div className=" lg:flex xl:flex 2xl:flex gap-9">
+                <img src={details.image} alt={details.title}/>
+                <p className="mb-3 text-lg text-gray-500 md:text-md dark:text-gray-400">Time to
+                    prepare <b>{details.readyInMinutes}</b> minutes</p>
+                <div className="border-b-2 border-blue-300 xl:border-b-0 2xl:border-b-0">
                     <h2 className="text-2xl font-bold dark:text-white">Diet information:</h2>
-                    <ul className="space-y-1 max-w-md list-inside text-gray-500 dark:text-gray-400">
+                    <ul className="space-y-1 max-w-md list-inside text-gray-500 dark:text-gray-400 mb-3">
                         {details.vegetarian ? <li>{greenTickSVG}Vegetarian</li> : <li>{grayTickSVG}Vegetarian</li>}
                         {details.vegan ? <li>{greenTickSVG}Vegan</li> : <li>{grayTickSVG}Vegan</li>}
                         {details.glutenFree ? <li>{greenTickSVG}Gluten free</li> : <li>{grayTickSVG}Gluten free</li>}
                         {details.dairyFree ? <li>{greenTickSVG}Dairy free</li> : <li>{grayTickSVG}Dairy free</li>}
                         {details.lowFodmap ? <li>{greenTickSVG}Low fodmap</li> : <li>{grayTickSVG}Low fodmap</li>}
+                    </ul>
+                </div>
+                <div className="border-b-2 border-blue-300 xl:border-b-0 2xl:border-b-0">
+                    <h3 className="text-2xl font-bold dark:text-white">Ingredients</h3>
+                    <ul className="space-y-1 max-w-md text-gray-500 dark:text-gray-400 mb-3">
+                        {details.extendedIngredients.map((ingredient) => (
+                            <li key={ingredient.id}>{ingredient.original}</li>
+                        ))}
                     </ul>
                 </div>
             </div>
