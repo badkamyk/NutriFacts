@@ -9,9 +9,9 @@ export default function RecipeInfo({recipe}: { recipe: Array<RecipeType> }) {
     const setRecipeAsc = recipe.sort(sortByMissingIngredients);
 
     return (
-
         setRecipeAsc.length > 0 ?
-            <div className="flex flex-row gap-3 flex-wrap">
+            <div
+                className="max-w-full flex md:flex-row lg:flex-row xl:flex-row 2xl:flex-row gap-6 flex-wrap mb-3 justify-center">
                 {setRecipeAsc.map((recipe) => (
                     <MealCard key={recipe.title} mealInfo={recipe}/>
                 ))}
@@ -20,6 +20,4 @@ export default function RecipeInfo({recipe}: { recipe: Array<RecipeType> }) {
                 here</h2>
 
     )
-
-
 }

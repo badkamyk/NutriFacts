@@ -16,9 +16,6 @@ type SearchType = {
 
 export default function FindRecipe({setIngredients, setRecipe, chosenCategory, setChosenCategory}: SearchType) {
     const [search, setSearch] = useState("");
-    console.log(search)
-
-    console.log(chosenCategory);
     const [buttonText, setButtonText] = useState("Analyze");
     const inputRef = useRef<HTMLInputElement>(null);
     // const {data, error} = useSWR('/api/user/123', fetcher)
@@ -46,7 +43,7 @@ export default function FindRecipe({setIngredients, setRecipe, chosenCategory, s
                 const parseRes = await response.json();
                 setIngredients && setIngredients(parseRes.items);
             } else if (chosenCategory === "recipe") {
-                const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=3&apiKey=YOUR_API_KEY`, {
+                const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=9&apiKey=YOUR_API_KEY`, {
                     method: "GET",
                 });
 
@@ -125,7 +122,7 @@ export default function FindRecipe({setIngredients, setRecipe, chosenCategory, s
                     <div className="relative w-full">
                         <input onChange={handleSearch} value={search} type="search" id="search-dropdown" ref={inputRef}
                                className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                               placeholder="Search Mockups, Logos, Design Templates..."/>
+                               placeholder="Ingredients..."/>
                         <button type="submit"
                                 className="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor"

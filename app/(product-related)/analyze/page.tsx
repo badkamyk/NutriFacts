@@ -7,7 +7,6 @@ import {RecipeType} from "../../../components/types/RecipeType";
 import RecipeInfo from "../../../components/RecipeInfo";
 
 
-
 export default function Page() {
     const [ingredients, setIngredients] = useState<Array<IngredientType>>([]);
     const [recipe, setRecipe] = useState<Array<RecipeType>>([]);
@@ -30,9 +29,7 @@ export default function Page() {
             <main>
                 <SearchInput setIngredients={setIngredients} setRecipe={setRecipe} chosenCategory={chosenCategory} setChosenCategory={setChosenCategory}/>
                 <div className="flex gap-3 flex-wrap px-3 mt-6 mx-auto">
-                    {/*{<ProductInfo ingredients={ingredients} />}*/}
-                    {/*{ingredients.length > 0 ? <ProductInfo ingredients={ingredients} /> : <RecipeInfo recipe={recipe} />}*/}
-                    {chosenCategory === "nutrition" ? <ProductInfo ingredients={ingredients} /> : <RecipeInfo recipe={recipe} />}
+                        {chosenCategory === "nutrition" ? <ProductInfo ingredients={ingredients} /> : <RecipeInfo recipe={recipe} />}
                 </div>
             </main>
         </div>
