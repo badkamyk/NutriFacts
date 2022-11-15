@@ -1,0 +1,242 @@
+{
+    "week": {
+        "monday": {
+            "meals": [
+                {
+                    "id": 571904,
+                    "imageType": "jpg",
+                    "title": "No Bake Breakfast Cereal Energy Bites",
+                    "readyInMinutes": 30,
+                    "servings": 20,
+                    "sourceUrl": "http://www.ladybehindthecurtain.com/no-bake-breakfast-cereal-energy-bites/"
+                },
+                {
+                    "id": 292180,
+                    "imageType": "jpg",
+                    "title": "Blue Cheese and Spinach Pizza",
+                    "readyInMinutes": 13,
+                    "servings": 2,
+                    "sourceUrl": "http://www.myrecipes.com/recipe/blue-cheese-spinach-pizza-00420000024221/"
+                },
+                {
+                    "id": 327131,
+                    "imageType": "jpeg",
+                    "title": "Grilled Portobello Panini",
+                    "readyInMinutes": 35,
+                    "servings": 2,
+                    "sourceUrl": "http://www.foodnetwork.com/recipes/patrick-and-gina-neely/grilled-portobello-panini-recipe.html"
+                }
+            ],
+            "nutrients": {
+                "calories": 1843.5,
+                "protein": 59.52,
+                "fat": 70.31,
+                "carbohydrates": 252.85
+            }
+        },
+        "tuesday": {
+            "meals": [
+                {
+                    "id": 654274,
+                    "imageType": "jpg",
+                    "title": "Overnight Steel Cut Oatmeal",
+                    "readyInMinutes": 45,
+                    "servings": 8,
+                    "sourceUrl": "https://spoonacular.com/overnight-steel-cut-oatmeal-654274"
+                },
+                {
+                    "id": 602408,
+                    "imageType": "jpg",
+                    "title": "Pasta with Cajun Cream Sauce",
+                    "readyInMinutes": 15,
+                    "servings": 4,
+                    "sourceUrl": "http://www.steamykitchen.com/73-pasta-with-creamy-cajun-sauce.html"
+                },
+                {
+                    "id": 713311,
+                    "imageType": "jpg",
+                    "title": "Mini Potato Pizzas",
+                    "readyInMinutes": 22,
+                    "servings": 8,
+                    "sourceUrl": "http://www.loveandlemons.com/mini-potato-pizzas/"
+                }
+            ],
+            "nutrients": {
+                "calories": 1966.26,
+                "protein": 56.55,
+                "fat": 84.09,
+                "carbohydrates": 258.28
+            }
+        },
+        "wednesday": {
+            "meals": [
+                {
+                    "id": 701856,
+                    "imageType": "jpg",
+                    "title": "Gingersnap Breakfast Risotto",
+                    "readyInMinutes": 45,
+                    "servings": 4,
+                    "sourceUrl": "http://www.howsweeteats.com/2015/12/gingersnap-breakfast-risotto/"
+                },
+                {
+                    "id": 1600625,
+                    "imageType": "jpg",
+                    "title": "Spicy Peanut Butter Ramen",
+                    "readyInMinutes": 10,
+                    "servings": 1,
+                    "sourceUrl": "https://www.budgetbytes.com/spicy-peanut-butter-ramen/"
+                },
+                {
+                    "id": 5320,
+                    "imageType": "jpg",
+                    "title": "Salt and Pepper Shrimp with Thai Fried Rice",
+                    "readyInMinutes": 30,
+                    "servings": 6,
+                    "sourceUrl": "http://www.myrecipes.com/recipe/salt-pepper-shrimp-with-thai-fried-rice-10000001699573/"
+                }
+            ],
+            "nutrients": {
+                "calories": 1873.2,
+                "protein": 53.78,
+                "fat": 75.64,
+                "carbohydrates": 246.39
+            }
+        },
+        "thursday": {
+            "meals": [
+                {
+                    "id": 158188,
+                    "imageType": "jpg",
+                    "title": "Breakfast Toad in the Hole",
+                    "readyInMinutes": 40,
+                    "servings": 4,
+                    "sourceUrl": "http://www.chow.com/recipes/30537-breakfast-toad-in-the-hole"
+                },
+                {
+                    "id": 157842,
+                    "imageType": "png",
+                    "title": "Cold Korean Buckwheat Noodles Recipe",
+                    "readyInMinutes": 30,
+                    "servings": 4,
+                    "sourceUrl": "http://www.foodrepublic.com/2013/12/30/cold-korean-buckwheat-noodles-recipe"
+                },
+                {
+                    "id": 642125,
+                    "imageType": "jpg",
+                    "title": "Easy Thai Fried Rice",
+                    "readyInMinutes": 45,
+                    "servings": 4,
+                    "sourceUrl": "https://spoonacular.com/easy-thai-fried-rice-642125"
+                }
+            ],
+            "nutrients": {
+                "calories": 1798.46,
+                "protein": 55.19,
+                "fat": 55.95,
+                "carbohydrates": 265.06
+            }
+        },
+        "friday": {
+            "meals": [
+                {
+                    "id": 1108835,
+                    "imageType": "jpg",
+                    "title": "Banana Berry Baked Oatmeal",
+                    "readyInMinutes": 45,
+                    "servings": 6,
+                    "sourceUrl": "https://fitfoodiefinds.com/banana-berry-baked-oatmeal/"
+                },
+                {
+                    "id": 166023,
+                    "imageType": "jpg",
+                    "title": "Crispy Coconut Shrimp",
+                    "readyInMinutes": 30,
+                    "servings": 4,
+                    "sourceUrl": "http://www.BettyCrocker.com/recipes/crispy-coconut-shrimp/54316840-f74b-40fd-8077-008b0cd87806"
+                },
+                {
+                    "id": 299898,
+                    "imageType": "jpeg",
+                    "title": "Cornbread Stuffing",
+                    "readyInMinutes": 80,
+                    "servings": 8,
+                    "sourceUrl": "http://www.foodnetwork.com/recipes/michael-symon/cornbread-stuffing-recipe.html"
+                }
+            ],
+            "nutrients": {
+                "calories": 1742.72,
+                "protein": 60.94,
+                "fat": 71.77,
+                "carbohydrates": 223.77
+            }
+        },
+        "saturday": {
+            "meals": [
+                {
+                    "id": 640965,
+                    "imageType": "jpg",
+                    "title": "Crushed Lentil Soup- Granola Style",
+                    "readyInMinutes": 45,
+                    "servings": 1,
+                    "sourceUrl": "https://spoonacular.com/crushed-lentil-soup-granola-style-640965"
+                },
+                {
+                    "id": 1089148,
+                    "imageType": "jpg",
+                    "title": "Cheat's pissaladière",
+                    "readyInMinutes": 30,
+                    "servings": 2,
+                    "sourceUrl": "https://www.bbcgoodfood.com/recipes/cheats-pissaladiere"
+                },
+                {
+                    "id": 298004,
+                    "imageType": "jpeg",
+                    "title": "Sweet-Hot Steak Bites",
+                    "readyInMinutes": 190,
+                    "servings": 5,
+                    "sourceUrl": "http://www.foodnetwork.com/recipes/sweet-hot-steak-bites-recipe.html"
+                }
+            ],
+            "nutrients": {
+                "calories": 1772.58,
+                "protein": 49.79,
+                "fat": 75.63,
+                "carbohydrates": 230.59
+            }
+        },
+        "sunday": {
+            "meals": [
+                {
+                    "id": 640965,
+                    "imageType": "jpg",
+                    "title": "Crushed Lentil Soup- Granola Style",
+                    "readyInMinutes": 45,
+                    "servings": 1,
+                    "sourceUrl": "https://spoonacular.com/crushed-lentil-soup-granola-style-640965"
+                },
+                {
+                    "id": 407968,
+                    "imageType": "jpg",
+                    "title": "Vegetarian Spaghetti",
+                    "readyInMinutes": 25,
+                    "servings": 6,
+                    "sourceUrl": "http://www.tasteofhome.com/Recipes/vegetarian-spaghetti"
+                },
+                {
+                    "id": 634548,
+                    "imageType": "jpg",
+                    "title": "Beans With Smoked Pork Hock",
+                    "readyInMinutes": 45,
+                    "servings": 4,
+                    "sourceUrl": "https://spoonacular.com/beans-with-smoked-pork-hock-634548"
+                }
+            ],
+            "nutrients": {
+                "calories": 1720.14,
+                "protein": 53.33,
+                "fat": 56.24,
+                "carbohydrates": 256.7
+            }
+        }
+    }
+}

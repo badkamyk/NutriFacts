@@ -6,7 +6,7 @@ import Table from "../../../../components/Table";
 
 
 async function getRecipe(id: string) {
-    // const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=YOUR_API_KEY`);
+    // const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=YOUR_API_KEY`);
     // return res.json();
     const res = await import("../../../../public/response.json");
     return res.default;
@@ -29,11 +29,11 @@ function Details(details: RecipeDetails) {
     return (
         <div
             className="p-3 max-w-full border-b-2 border-blue-200 md:flex md:flex-col md:justify-center md:items-center xl:items-start xl:gap-2 xl:p-16">
-            <h1 className="mb-1.5 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white xl:mb-12">{details.title}</h1>
+            <h1 className="mb-1.5 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white xl:mb-9">{details.title}</h1>
             <div className="md:flex">
                 {details.diets.map((diet, index) => (
                     <span key={index}
-                        className="my-1.5 inline-block px-2 py-1 mr-2 text-sm font-medium leading-5 text-blue-800 bg-blue-100 rounded-full dark:bg-blue-700 dark:text-blue-100">{diet}</span>
+                        className="my-1 inline-block px-2 py-1 mr-2 text-sm xl:text-lg font-medium leading-5 text-blue-800 bg-blue-100 rounded-full dark:bg-blue-700 dark:text-blue-100">{diet}</span>
                 ))}
             </div>
             <div className="flex my-3 gap-3 justify-evenly xl:gap-6">
@@ -78,7 +78,7 @@ function Details(details: RecipeDetails) {
                     <ul className="list-none text-center">
                         {details.extendedIngredients.map((ingredient, index) => (
                             <li key={index}
-                                className="text-md text-gray-500 md:text-md dark:text-gray-400">{ingredient.original}</li>
+                                className="text-md text-gray-500 md:text-md dark:text-gray-400 xl:text-lg">{ingredient.original}</li>
                         ))}
 
                     </ul>
