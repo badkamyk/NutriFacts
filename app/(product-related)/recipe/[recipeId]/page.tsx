@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { RecipeDetails } from "../../../../components/types/RecipeDetails";
 import Spinner from "../../../../components/Spinner";
 import Image from "next/image";
+import Table from "../../../../components/Table";
 
 
 async function getRecipe(id: string) {
@@ -52,12 +53,12 @@ function Details(details: RecipeDetails) {
                 ))}
             </div>
             <div
-                className=" lg:flex lg:flex-col xl:flex-row gap-9 border-b-1 border-blue-600 mb-5 xl:justify-center items-start 2xl:flex">
-                <Image className="mb-2 max-h-[500px]" src={details.image} alt={details.title} width={500} height={500} />
-                <div className="flex flex-col gap-3 mb-5 xl:max-w-[50%]">
+                className=" lg:flex lg:flex-col xl:flex-row gap-9 mb-5 xl:justify-center items-start 2xl:flex">
+                <Image className="mb-2 md:mx-auto" src={details.image} alt={details.title} width={500} height={500} />
+                <div className="flex flex-col gap-3 mb-5 xl:w-[40%]">
                     <h5 className="text-center text-xl font-bold dark:text-white xl:text-start">Nutrition per serving</h5>
                     <div
-                        className="flex max-w-full flex-wrap gap-1 justify-center items-start border-b-1 border-blue-600 xl:flex-row xl:max-w-[60%] xl:justify-start xl:items-center">
+                        className="flex max-w-full flex-wrap gap-1 justify-center items-start border-b-1 border-blue-600 xl:flex-row xl:max-w-full xl:justify-start xl:items-center">
                         {details.nutrition.nutrients.map((nutrient, index) => (
                             usedNutrients.includes(nutrient.name) && (
                                 <div
@@ -72,7 +73,7 @@ function Details(details: RecipeDetails) {
                     </div>
                 </div>
 
-                <div className="border-b-2 border-blue-300 xl:border-b-0 2xl:border-b-0 pb-3 md:border-b-0">
+                <div className="border-b-2 border-blue-300 xl:border-b-0 2xl:border-b-0 pb-3 md:border-b-0 xl:w-[40%]">
                     <h5 className="text-center text-xl font-bold dark:text-white mb-2">Ingredients</h5>
                     <ul className="list-none text-center">
                         {details.extendedIngredients.map((ingredient, index) => (
@@ -83,10 +84,14 @@ function Details(details: RecipeDetails) {
                     </ul>
                 </div>
             </div>
-            <div className="mb-5 md:max-w-[80%] md:mx-auto xl:max-w-[70%]">
+            <div className="mb-12 md:max-w-[80%] md:mx-auto xl:max-w-[70%] xl:border-b-2 xl:border-blue-300 xl:pb-9">
                 <h5 className="text-center text-xl font-bold dark:text-white mb-2">Instructions</h5>
-                <div className="text-sm text-gray-500 md:text-md dark:text-gray-400 xl:text-lg"
+                <div className="text-sm text-gray-500 md:text-md dark:text-gray-400 xl:text-lg 2xl:text-xl"
                     dangerouslySetInnerHTML={{ __html: details.summary }} />
+            </div>
+            <div className="mx-auto">
+                <h2 className="text-center text-xl font-bold dark:text-white mb-2r">Detailed nutrition information</h2>
+                <Table nutrients={details.nutrition.nutrients} />
             </div>
         </div>
     );
