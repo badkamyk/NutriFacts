@@ -1,70 +1,106 @@
-import {Suspense} from "react";
-import {RecipeDetailts} from "../../../../components/types/RecipeDetailts";
+import { Suspense } from "react";
+import { RecipeDetails } from "../../../../components/types/RecipeDetails";
 import Spinner from "../../../../components/Spinner";
 import Image from "next/image";
 
+
 async function getRecipe(id: string) {
-    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=YOUR_API_KEY`);
-    return res.json();
+    // const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=YOUR_API_KEY`);
+    // return res.json();
+    const res = await import("../../../../public/response.json");
+    return res.default;
 }
 
-const grayTickSVG = <svg className="inline w-4 h-4 mr-1.5 text-gray-400 flex-shrink-0" fill="currentColor"
-                         viewBox="0 0 20 20"
-                         xmlns="http://www.w3.org/2000/svg">
-    <path fillRule="evenodd"
-          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-          clipRule="evenodd"></path>
-</svg>
+const usedNutrients = [
+    "Calories",
+    "Fat",
+    "Carbohydrates",
+    "Protein",
+    "Fiber",
+    "Sugar",
+    "Sodium",
+    "Cholesterol",
+    "Saturated Fat",
+]
 
-const greenTickSVG = <svg className="inline w-4 h-4 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0"
-                          fill="currentColor"
-                          viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-    <path fillRule="evenodd"
-          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-          clipRule="evenodd"></path>
-</svg>
 
-function Details(details: RecipeDetailts) {
+function Details(details: RecipeDetails) {
     return (
-        <div className="p-3 max-w-full">
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white mb-12">{details.title}</h1>
-            <div className=" lg:flex xl:flex 2xl:flex gap-9">
-                <img src={details.image} alt={details.title}/>
-                <p className="mb-3 text-lg text-gray-500 md:text-md dark:text-gray-400">Time to
-                    prepare <b>{details.readyInMinutes}</b> minutes</p>
-                <div className="border-b-2 border-blue-300 xl:border-b-0 2xl:border-b-0">
-                    <h2 className="text-2xl font-bold dark:text-white">Diet information:</h2>
-                    <ul className="space-y-1 max-w-md list-inside text-gray-500 dark:text-gray-400 mb-3">
-                        {details.vegetarian ? <li>{greenTickSVG}Vegetarian</li> : <li>{grayTickSVG}Vegetarian</li>}
-                        {details.vegan ? <li>{greenTickSVG}Vegan</li> : <li>{grayTickSVG}Vegan</li>}
-                        {details.glutenFree ? <li>{greenTickSVG}Gluten free</li> : <li>{grayTickSVG}Gluten free</li>}
-                        {details.dairyFree ? <li>{greenTickSVG}Dairy free</li> : <li>{grayTickSVG}Dairy free</li>}
-                        {details.lowFodmap ? <li>{greenTickSVG}Low fodmap</li> : <li>{grayTickSVG}Low fodmap</li>}
-                    </ul>
+        <div
+            className="p-3 max-w-full border-b-2 border-blue-200 md:flex md:flex-col md:justify-center md:items-center xl:items-start xl:gap-2 xl:p-16">
+            <h1 className="mb-1.5 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white xl:mb-12">{details.title}</h1>
+            <div className="md:flex">
+                {details.diets.map((diet, index) => (
+                    <span key={index}
+                        className="my-1.5 inline-block px-2 py-1 mr-2 text-sm font-medium leading-5 text-blue-800 bg-blue-100 rounded-full dark:bg-blue-700 dark:text-blue-100">{diet}</span>
+                ))}
+            </div>
+            <div className="flex my-3 gap-3 justify-evenly xl:gap-6">
+                <div>
+                    <p className="text-sm text-gray-500 md:text-md xl:text-xl dark:text-gray-400">Total</p>
+                    <p className="text-sm text-gray-500 md:text-md xl:text-lg dark:text-gray-400">
+                        <b>{details.readyInMinutes}</b> minutes</p>
                 </div>
-                <div className="border-b-2 border-blue-300 xl:border-b-0 2xl:border-b-0">
-                    <h3 className="text-2xl font-bold dark:text-white">Ingredients</h3>
-                    <ul className="space-y-1 max-w-md text-gray-500 dark:text-gray-400 mb-3">
-                        {details.extendedIngredients.map((ingredient) => (
-                            <li key={ingredient.id}>{ingredient.original}</li>
+                {Object.entries(details.nutrition.caloricBreakdown).map(([key, value]) => (
+                    <div key={key}>
+                        <p className="text-sm text-gray-500 md:text-md xl:text-xl dark:text-gray-400">{key.replace("percent", "")}</p>
+                        <p className="text-sm text-gray-500 md:text-md xl:text-lg dark:text-gray-400">
+                            <b>{Math.floor(value)}%</b>
+                        </p>
+                    </div>
+
+                ))}
+            </div>
+            <div
+                className=" lg:flex lg:flex-col xl:flex-row gap-9 border-b-1 border-blue-600 mb-5 xl:justify-center items-start 2xl:flex">
+                <Image className="mb-2 max-h-[500px]" src={details.image} alt={details.title} width={500} height={500} />
+                <div className="flex flex-col gap-3 mb-5 xl:max-w-[50%]">
+                    <h5 className="text-center text-xl font-bold dark:text-white xl:text-start">Nutrition per serving</h5>
+                    <div
+                        className="flex max-w-full flex-wrap gap-1 justify-center items-start border-b-1 border-blue-600 xl:flex-row xl:max-w-[60%] xl:justify-start xl:items-center">
+                        {details.nutrition.nutrients.map((nutrient, index) => (
+                            usedNutrients.includes(nutrient.name) && (
+                                <div
+                                    key={index}
+                                    className="flex flex-col text-center gap-1 my-1.5 px-2 py-5 mr-2 text-sm font-medium leading-5 text-blue-800 bg-yellow-100 rounded-full dark:bg-blue-700 dark:text-blue-100">
+                                    <p className="text-sm text-gray-500 md:text-md dark:text-gray-400">{nutrient.name}</p>
+                                    <p className="text-sm text-gray-500 md:text-md dark:text-gray-400 bg-white rounded-full p-3">
+                                        <b>{nutrient.amount}</b> {nutrient.unit}</p>
+                                </div>
+                            )
                         ))}
+                    </div>
+                </div>
+
+                <div className="border-b-2 border-blue-300 xl:border-b-0 2xl:border-b-0 pb-3 md:border-b-0">
+                    <h5 className="text-center text-xl font-bold dark:text-white mb-2">Ingredients</h5>
+                    <ul className="list-none text-center">
+                        {details.extendedIngredients.map((ingredient, index) => (
+                            <li key={index}
+                                className="text-md text-gray-500 md:text-md dark:text-gray-400">{ingredient.original}</li>
+                        ))}
+
                     </ul>
                 </div>
             </div>
-            <p>{details.summary}</p>
+            <div className="mb-5 md:max-w-[80%] md:mx-auto xl:max-w-[70%]">
+                <h5 className="text-center text-xl font-bold dark:text-white mb-2">Instructions</h5>
+                <div className="text-sm text-gray-500 md:text-md dark:text-gray-400 xl:text-lg"
+                    dangerouslySetInnerHTML={{ __html: details.summary }} />
+            </div>
         </div>
     );
 }
 
 
-export default async function Page({params}: { params: { recipeId: string } }) {
+export default async function Page({ params }: { params: { recipeId: string } }) {
     const _mealDetails = await getRecipe(params.recipeId);
 
     return (
-        <>
-            <Suspense fallback={<Spinner/>}>
-                <Details {..._mealDetails}/>
+        <div className="min-h-screen">
+            <Suspense fallback={<Spinner />}>
+                <Details {..._mealDetails} />
             </Suspense>
-        </>
+        </div>
     );
 }

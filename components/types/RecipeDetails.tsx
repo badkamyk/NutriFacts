@@ -39,7 +39,7 @@ export type WinePairing = {
     }[];
 }
 
-export type RecipeDetailts = {
+export type RecipeDetails = {
     id: number,
     vegetarian: boolean,
     vegan: boolean,
@@ -54,6 +54,19 @@ export type RecipeDetailts = {
     lowFodmap: boolean,
     preparationMinutes: number,
     cookingMinutes: number,
+    nutrition: {
+        nutrients: {
+            name: string,
+            amount: number,
+            unit: string,
+            percentOfDailyNeeds: number
+        }[],
+        caloricBreakdown: {
+            percentProtein: number,
+            percentFat: number,
+            percentCarbs: number
+        }
+        },
     aggregateLikes: number,
     healthScore: number,
     creditsText: string,
@@ -67,9 +80,13 @@ export type RecipeDetailts = {
     readyInMinutes: number,
     servings: number,
     sourceUrl: string,
-    analyzedInstructions: {
-        name: string;
-    }
+    analyzedInstructions: any
+    cuisines: string[],
+    dishTypes: string[],
+    diets: string[],
+    occasions: string[],
     summary: string,
     winePairing: WinePairing,
+    originalId: number | null,
+    spoonacularSourceUrl: string
 }
