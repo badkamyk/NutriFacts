@@ -48,7 +48,6 @@ export default function FindRecipe({ setIngredients, setRecipe, chosenCategory, 
                 });
 
                 const parseRes = await response.json();
-                console.log("here", parseRes);
                 setRecipe && setRecipe(parseRes);
             }
         } catch (err) {

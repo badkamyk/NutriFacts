@@ -10,8 +10,8 @@ import {
 import Link from "next/link";
 
 export default function MealPlanner() {
-    const [calories, setCalories] = useState("2000");
-    const [diet, setDiet] = useState("");
+    const [calories, setCalories] = useState("Choose calories");
+    const [diet, setDiet] = useState("Choose diet");
     const [data, setData] = useState<WeekType | null>(null);
 
     const onChangeDiet = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -26,9 +26,6 @@ export default function MealPlanner() {
         const res = await fetch(
             `https://api.spoonacular.com/mealplanner/generate?timeFrame=week&targetCalories=${calories}&diet=${diet}&apiKey=YOUR_API_KEY`
         );
-        setTimeout(() => {
-            console.log("test");
-        }, 10000);
         return res.json();
         // const res = await import("../../../public/mealWeek.json");
         // return res.default;
@@ -42,6 +39,18 @@ export default function MealPlanner() {
         });
     }
 
+    function renderNutrients(nutrients: NutrientsType) {
+        return (
+            Object.entries(nutrients).map(([key, value]) => (
+                <div key={key}>
+                    <p className="text-sm font-bold">{key} <span className="text-black">{value}</span></p>
+                </div>
+            ))
+        )
+    }
+
+    const buttonDisabled = calories === "Choose calories" || diet === "Choose diet";
+
     const renderMealForOneDay = () => {
         return (
             data &&
@@ -51,31 +60,39 @@ export default function MealPlanner() {
                         <h2 className="text-2xl font-bold text-center my-1 px-2 py-1 mr-2 xl:text-lg 2xl:text-xl leading-5 text-blue-800 bg-blue-100 rounded-full dark:bg-blue-700 dark:text-blue-100">
                             {key.toUpperCase()}
                         </h2>
+                        <div className="text-xl font-bold text-center my-6 px-2 md:w-[40%] py-1 mx-auto xl:text-lg 2xl:text-xl leading-5 text-blue-800 bg-green-100 rounded-full dark:bg-blue-700 dark:text-blue-100">
+                            <h3 className="text-2xl w-[50%] font-bold text-center my-1 px-2 py-2 xl:w-[40%] mx-auto xl:text-lg 2xl:text-xl leading-5 text-blue-800 bg-green-200 rounded-full dark:bg-blue-700 dark:text-blue-100">
+                                Nutrients
+                            </h3>
+                            {renderNutrients(value.nutrients)}
+                        </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {value.meals.map((meal: DayMealType) => {
+                            {value.meals.map((meal: DayMealType, index) => {
                                 return (
                                     <div
                                         key={meal.id}
-                                        className="bg-white rounded-lg shadow-lg p-4  hover:bg-blue-200 hover:cursor-pointer"
+                                        className="bg-white rounded-lg shadow-lg hover:bg-blue-200 hover:cursor-pointer p-6"
                                     >
                                         <Link href={`/recipe/${meal.id}`}>
                                             <h3 className="text-xl font-bold">{meal.title}</h3>
-                                            <p className="text-gray-500 text-md">
+                                            <p className="text-gray-500 text-lg">
                                                 Time to prepare: {meal.readyInMinutes} minutes
                                             </p>
                                             <p className="text-gray-500 xl:text-md 2xl:text-lg">
                                                 {meal.servings} servings
                                             </p>
-                                            {Object.entries(value.nutrients).map(([key, value]) => {
-                                                return (
-                                                    <p
-                                                        key={key}
-                                                        className="my-1 px-2 py-1 mr-2 text-sm xl:text-md 2xl:text-lg font-medium w-[60%] leading-5 text-blue-800 bg-green-100 rounded-full dark:bg-blue-700 dark:text-blue-100"
-                                                    >
-                                                        {key}: {value}
-                                                    </p>
-                                                );
-                                            })}
+                                            {/*{Object.entries(value.nutrients).map(([key, value]) => {*/}
+                                            {/*    return (*/}
+                                            {/*        <p*/}
+                                            {/*            key={key}*/}
+                                            {/*            className="my-1 px-2 py-1 mr-2 text-sm xl:text-md 2xl:text-lg font-medium w-[60%] leading-5 text-blue-800 bg-green-100 rounded-full dark:bg-blue-700 dark:text-blue-100"*/}
+                                            {/*        >*/}
+                                            {/*            {key}: {value}*/}
+                                            {/*        </p>*/}
+                                            {/*    );*/}
+                                            {/*})}*/}
+
+
                                         </Link>
                                     </div>
                                 );
@@ -90,7 +107,7 @@ export default function MealPlanner() {
     return (
         <div className="px-3 min-h-screen">
             <h1 className="my-6 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white mb-12 text-center">
-                Plan your meal for next day or week
+                Plan your meals for next week
             </h1>
             <form
                 onSubmit={onSubmit}
@@ -99,7 +116,8 @@ export default function MealPlanner() {
                 <Select
                     value={diet}
                     onChange={onChangeDiet}
-                    label={"Choose diet"}
+                    onBlur={onChangeDiet}
+                    label={"Diet type"}
                     id={"diet"}
                     options={[
                         "Vegan",
@@ -115,13 +133,16 @@ export default function MealPlanner() {
                 <Select
                     value={calories}
                     onChange={onChangeCalories}
-                    label={"Choose calories"}
+                    onBlur={onChangeCalories}
+                    label={"Calories count"}
                     id={"calories"}
-                    options={["2000", "2500", "3000", "3500", "4000", "4500", "5000"]}
+                    options={["1500", "2000", "2500", "3000", "3500", "4000", "4500", "5000"]}
                 />
                 <button
+                    disabled={buttonDisabled}
                     type="submit"
-                    className="mt-6 w-full py-3 px-4 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className={`mt-6 w-full py-3 px-4 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600
+                     hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${buttonDisabled && "opacity-50 cursor-not-allowed"}`}
                 >
                     Plan my meal
                 </button>
