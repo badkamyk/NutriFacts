@@ -46,8 +46,8 @@ export default function Nav() {
                 </Navbar.Link>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
-                    href="/shop">
-                    Shop
+                    href="/favorites">
+                    Favorites
                 </Navbar.Link>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
