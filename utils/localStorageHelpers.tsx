@@ -11,8 +11,6 @@ export function saveRecipeToLocalStorage(id: string) {
 
 export function checkIfInLocalStorage(id: string) {
     const currentValue = localStorage.getItem("savedRecipes");
-    if (currentValue && currentValue.includes(id)) {
-        return true;
-    }
-    return false;
+    return !!(currentValue && currentValue.includes(id));
+
 }

@@ -1,16 +1,17 @@
-import { Suspense } from "react";
-import { RecipeDetails } from "../../../../components/types/RecipeDetails";
+import {Suspense} from "react";
+import {RecipeDetails} from "../../../../components/types/RecipeDetails";
 import Spinner from "../../../../components/Spinner";
 import Image from "next/image";
 import Table from "../../../../components/Table";
+
 // import { saveRecipeToLocalStorage } from "../../../../utils/localStorageHelpers";
 
 
 async function getRecipe(id: string) {
-    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=YOUR_API_KEY`);
-    return res.json();
-    // const res = await import("../../../../public/response.json");
-    // return res.default;
+    // const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=YOUR_API_KEY`);
+    // return res.json();
+    const res = await import("../../../../public/response.json");
+    return res.default;
 }
 
 const usedNutrients = [
@@ -33,15 +34,17 @@ function Details(details: RecipeDetails) {
             <header className="flex justify-between">
                 <h1 className="mb-1.5 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white xl:mb-9">{details.title}</h1>
                 <div className="ml-12">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" fill="none" className="w-8 h-8 lg:w-12 lg:h-12 hover:fill-red-500">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                         fill="none" className="w-8 h-8 lg:w-12 lg:h-12 hover:fill-red-500">
+                        <path strokeLinecap="round" strokeLinejoin="round"
+                              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
                     </svg>
                 </div>
             </header>
             <div className="md:flex">
                 {details.diets.map((diet, index) => (
                     <span key={index}
-                        className="my-1 inline-block px-2 py-1 mr-2 text-sm xl:text-lg font-medium leading-5 text-blue-800 bg-blue-100 rounded-full dark:bg-blue-700 dark:text-blue-100">{diet}</span>
+                          className="my-1 inline-block px-2 py-1 mr-2 text-sm xl:text-lg font-medium leading-5 text-blue-800 bg-blue-100 rounded-full dark:bg-blue-700 dark:text-blue-100">{diet}</span>
                 ))}
             </div>
             <div className="flex my-3 gap-3 justify-evenly xl:gap-6">
@@ -62,9 +65,10 @@ function Details(details: RecipeDetails) {
             </div>
             <div
                 className=" lg:flex lg:flex-col xl:flex-row gap-9 mb-5 xl:justify-center items-start 2xl:flex">
-                <Image className="mb-2 md:mx-auto" src={details.image} alt={details.title} width={500} height={500} />
+                <Image className="mb-2 md:mx-auto" src={details.image} alt={details.title} width={500} height={500}/>
                 <div className="flex flex-col gap-3 mb-5 xl:w-[40%]">
-                    <h5 className="text-center text-xl font-bold dark:text-white xl:text-start">Nutrition per serving</h5>
+                    <h5 className="text-center text-xl font-bold dark:text-white xl:text-start">Nutrition per
+                        serving</h5>
                     <div
                         className="flex max-w-full flex-wrap gap-1 justify-center items-start border-b-1 border-blue-600 xl:flex-row xl:max-w-full xl:justify-start xl:items-center">
                         {details.nutrition.nutrients.map((nutrient, index) => (
@@ -94,24 +98,31 @@ function Details(details: RecipeDetails) {
             </div>
             <div className="mb-12 md:max-w-[80%] md:mx-auto xl:max-w-[70%] xl:border-b-2 xl:border-blue-300 xl:pb-9">
                 <h5 className="text-center text-xl font-bold dark:text-white mb-2">Instructions</h5>
-                <div className="text-sm text-gray-500 md:text-md dark:text-gray-400 xl:text-lg 2xl:text-xl"
-                    dangerouslySetInnerHTML={{ __html: details.summary }} />
+                <div className="text-sm text-gray-500 md:text-md dark:text-gray-400 xl:text-lg 2xl:text-xl">
+                    <p> {details.instructions.replaceAll(".", ". ").charAt(0)}wash and rinse pork chops and place into the skillet.cut them into bite sized pieces and add half of the Basil Garlic simmer sauce.boil your water and start working on cooking your bow-tie pasta.when you have finished with boiling and draining your pasta, add it to the pork along with the rest of the Basil Garlic Simmering Sauce, mixing lightly.Next you will top with the Chunky Bruschetta Finishing Sauce, cover with Parmesan, and cover. Cooking on low heat 2 to 3 minutes or until heated through.</p>
+                </div>
             </div>
+            <div className="mb-12 md:max-w-[80%] md:mx-auto xl:max-w-[70%] xl:border-b-2 xl:border-blue-300 xl:pb-9">
+                <h5 className="text-center text-xl font-bold dark:text-white mb-2">Summary</h5>
+                <div className="text-sm text-gray-500 md:text-md dark:text-gray-400 xl:text-lg 2xl:text-xl"
+                     dangerouslySetInnerHTML={{__html: details.summary}}/>
+            </div>
+
             <div className="mx-auto">
                 <h2 className="text-center text-xl font-bold dark:text-white mb-2r">Detailed nutrition information</h2>
-                <Table nutrients={details.nutrition.nutrients} />
+                <Table nutrients={details.nutrition.nutrients}/>
             </div>
         </div>
     );
 }
 
 
-export default async function Page({ params }: { params: { recipeId: string } }) {
+export default async function Page({params}: { params: { recipeId: string } }) {
     const _mealDetails = await getRecipe(params.recipeId);
 
     return (
         <div className="min-h-screen">
-            <Suspense fallback={<Spinner />}>
+            <Suspense fallback={<Spinner/>}>
                 <Details {..._mealDetails} />
             </Suspense>
         </div>
