@@ -31,8 +31,8 @@ export default function Page() {
                     setChosenCategory={setChosenCategory} />
                 <div className="flex gap-3 flex-wrap px-3 mt-6 mx-auto">
                     {chosenCategory === "nutrition" ?
-                        <Suspense fallback={<Spinner />}><ProductInfo ingredients={ingredients} /></Suspense> :
-                        <Suspense fallback={<Spinner />}><RecipeInfo recipe={recipe} /></Suspense>}
+                        <Suspense fallback={<Spinner />}><ProductInfo ingredients={ingredients} /></Suspense>
+                        : <Suspense fallback={<Spinner />}><RecipeInfo recipe={recipe} /></Suspense>}
                 </div>
             </main>
         </div>

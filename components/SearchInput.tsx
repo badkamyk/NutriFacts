@@ -43,7 +43,7 @@ export default function FindRecipe({ setIngredients, setRecipe, chosenCategory, 
                 const parseRes = await response.json();
                 setIngredients && setIngredients(parseRes.items);
             } else if (chosenCategory === "recipe") {
-                const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=1&apiKey=YOUR_API_KEY`, {
+                const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=9&apiKey=YOUR_API_KEY`, {
                     method: "GET",
                 });
 
