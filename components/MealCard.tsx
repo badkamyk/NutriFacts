@@ -3,7 +3,21 @@ import { Card } from "flowbite-react"
 import Link from "next/link"
 import { saveRecipeToLocalStorage, checkIfInLocalStorage } from "../utils/localStorageHelpers"
 
-export default function MealCard({ mealInfo }: { mealInfo: RecipeType }) {
+export default function MealCard({ mealInfo, addedToFavorites, setAddedToFavorites }: { mealInfo: RecipeType, addedToFavorites: string[], setAddedToFavorites: React.Dispatch<React.SetStateAction<string[]>> }) {
+
+    function handleSaveRecipe() {
+        saveRecipeToLocalStorage(mealInfo.id.toString());
+        setAddedToFavorites([...addedToFavorites, mealInfo.id.toString()]);
+    }
+
+    const handleRemove = (id: string) => {
+        checkIfInLocalStorage(id) && setAddedToFavorites(addedToFavorites.filter(favorite => favorite !== id));
+        saveRecipeToLocalStorage(id);
+        setAddedToFavorites([localStorage.getItem("savedRecipes") || ""]);
+        console.log("favs", addedToFavorites);
+        console.log("ls", localStorage.getItem("savedRecipes"));
+    }
+
     return (
         <div className="max-w-[310px] flex-auto flex flex-col justify-between">
             <Card
@@ -36,7 +50,7 @@ export default function MealCard({ mealInfo }: { mealInfo: RecipeType }) {
                         Check details
                     </Link>
                     <button
-                        onClick={() => saveRecipeToLocalStorage(mealInfo.id.toString())}
+                        onClick={() => handleRemove(mealInfo.id.toString())}
                         className="rounded-lg bg-green-500 ml-2 px-4 py-3.5 text-center text-sm font-medium text-white hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                         {checkIfInLocalStorage(mealInfo.id.toString()) ? "Remove from favorites" : "Add to favorites"}

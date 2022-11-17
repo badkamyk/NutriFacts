@@ -16,14 +16,14 @@ export default function Favorites() {
 
     useEffect(() => {
         const getFavorites = async () => {
-            // const response = await fetch(` https://api.spoonacular.com/recipes/informationBulk?ids=${favoritesIDs}&apiKey=YOUR_API_KEY`);
-            const response = await fetch(`recipeBulk.json`);
+            const response = await fetch(` https://api.spoonacular.com/recipes/informationBulk?ids=${favoritesIDs}&apiKey=YOUR_API_KEY`);
+            // const response = await fetch(`recipeBulk.json`);
             const data = await response.json();
             setFavorites(data);
             setIsLoading(false);
         }
         getFavorites()
-    }, [])
+    }, [favoritesIDs])
 
     const handleRemove = (id: string) => {
         checkIfInLocalStorage(id) && setFavorites(favorites.filter(favorite => favorite.id !== parseInt(id)));
@@ -47,7 +47,7 @@ export default function Favorites() {
                                 <Link href={`recipe/${recipe.id}`}>
                                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{recipe.title}</h5>
                                 </Link>
-                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{recipe.instructions.substring(0, 50)}...</p>
+                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{recipe.instructions?.substring(0, 81).replaceAll(".", ". ")}...</p>
                                 <div className="flex justify-around gap-3">
                                     <Link href={`recipe/${recipe.id}`}
                                         className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
