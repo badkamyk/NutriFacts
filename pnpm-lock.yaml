@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@emailjs/browser': ^3.9.1
   '@headlessui/react': ^1.7.4
   '@heroicons/react': ^2.0.13
   '@types/node': 18.11.9
@@ -20,6 +21,7 @@ specifiers:
   typescript: 4.8.4
 
 dependencies:
+  '@emailjs/browser': 3.9.1
   '@headlessui/react': 1.7.4_biqbaboplfbrettd7655fr4n2y
   '@heroicons/react': 2.0.13_react@18.2.0
   '@types/node': 18.11.9
@@ -147,6 +149,11 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: false
     optional: true
+
+  /@emailjs/browser/3.9.1:
+    resolution: {integrity: sha512-8xhwTUoTDG5Tqjt8uC28zwmrwcjGhApXwUMyUaEmhhUVmCHhefetTlIR7Mlm4Ae8+Nm0+sC3oPe3K+BcR12QWA==}
+    engines: {node: '>=14.0.0'}
+    dev: false
 
   /@eslint/eslintrc/1.3.3:
     resolution: {integrity: sha512-uj3pT6Mg+3t39fvLrj8iuCIJ38zKO9FpGtJ4BBJebJhEwjoT+KLVNCcHT5QC9NGRIEi7fZ0ZR8YRb884auB4Lg==}

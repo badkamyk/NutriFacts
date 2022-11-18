@@ -4,7 +4,6 @@ import Script from 'next/script';
 import Head from 'next/head';
 import { IngredientType } from "./types/IngredientType";
 import { RecipeType } from "./types/RecipeType";
-import useSWR from 'swr'
 
 
 type SearchType = {
@@ -18,7 +17,6 @@ export default function FindRecipe({ setIngredients, setRecipe, chosenCategory, 
     const [search, setSearch] = useState("");
     const [buttonText, setButtonText] = useState("Analyze");
     const inputRef = useRef<HTMLInputElement>(null);
-    // const {data, error} = useSWR('/api/user/123', fetcher)
 
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
