@@ -12,7 +12,6 @@ export default function Favorites() {
     const [favoritesIDs, setFavoritesIDs] = useState<string>(localStorage.getItem("savedRecipes") || "");
     const [favorites, setFavorites] = useState<RecipeDetails[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    console.log(favoritesIDs);
 
     useEffect(() => {
         const getFavorites = async () => {

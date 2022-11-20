@@ -93,16 +93,6 @@ export default function MealPlanner() {
                                             <p className="text-gray-500 xl:text-md 2xl:text-lg">
                                                 {meal.servings} servings
                                             </p>
-                                            {/*{Object.entries(value.nutrients).map(([key, value]) => {*/}
-                                            {/*    return (*/}
-                                            {/*        <p*/}
-                                            {/*            key={key}*/}
-                                            {/*            className="my-1 px-2 py-1 mr-2 text-sm xl:text-md 2xl:text-lg font-medium w-[60%] leading-5 text-blue-800 bg-green-100 rounded-full dark:bg-blue-700 dark:text-blue-100"*/}
-                                            {/*        >*/}
-                                            {/*            {key}: {value}*/}
-                                            {/*        </p>*/}
-                                            {/*    );*/}
-                                            {/*})}*/}
                                         </Link>
                                         <div className="absolute w-6 h-6 top-3 right-5" onClick={() => onFavoriteMeals(meal)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" fill={checkIfInLocalStorage(meal.id.toString()) ? "red" : "none"} className="w-6 h-6 hover:fill-red-500">

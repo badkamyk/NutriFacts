@@ -41,20 +41,20 @@ export default function Nav() {
                 </Navbar.Link>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
-                    href="/meal-planner">
-                    active={pathname === "/meal-planner"}
+                    href="/meal-planner"
+                    active={pathname === "/meal-planner"}>
                     Meal planner
                 </Navbar.Link>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
-                    href="/favorites">
-                    active={pathname === "/favorites"}
+                    href="/favorites"
+                    active={pathname === "/favorites"}>
                     Favorites
                 </Navbar.Link>
                 <Navbar.Link
                     className={"lg:text-md xl:text-lg 2xl:text-xl"}
-                    href="/contact">
-                    active={pathname === "/contact"}
+                    href="/contact"
+                    active={pathname === "/contact"}>
                     Contact
                 </Navbar.Link>
             </Navbar.Collapse>
