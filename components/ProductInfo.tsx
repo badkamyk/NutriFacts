@@ -1,18 +1,17 @@
 'use client'
-import {IngredientType} from "./types/IngredientType";
-import {Table} from "flowbite-react";
+import { IngredientType } from "./types/IngredientType";
+import { Table } from "flowbite-react";
 
 
 
-export default function ProductInfo({ingredients}: { ingredients: Array<IngredientType> }) {
-    const macronutrientsValues = Object.keys({product: "Product", ...ingredients[0]});
+export default function ProductInfo({ ingredients }: { ingredients: Array<IngredientType> }) {
+    const macronutrientsValues = Object.keys({ product: "Product", ...ingredients[0] });
     const tableHead = macronutrientsValues.map((name) => {
-
         return name === "name" ? null : <Table.HeadCell className="md-text:sm lg:text-md xl:text-md 2xl:text-lg">{name.replaceAll("_", " ")}</Table.HeadCell>
     })
 
     const tableBody = ingredients.map((ingredient) => {
-        const productAddedObj = {product: ingredient.name, ...ingredient}
+        const productAddedObj = { product: ingredient.name, ...ingredient }
         return (
             <Table.Row key={productAddedObj.name} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 {macronutrientsValues.map((nutritionName) => {
@@ -37,13 +36,13 @@ export default function ProductInfo({ingredients}: { ingredients: Array<Ingredie
     const sumOfMacronutrients = sumNutrientsByKey(ingredients);
 
     const sumNutrientsHTML = macronutrientsValues.map((nutritionName) => {
-            return nutritionName === "name" ? null :
-                nutritionName === "product" ?
-                    <Table.Cell className="bg-lime-100 border-t-4 border-blue-300 md-text:sm lg:text-md xl:text-lg 2xl:text-xl">total sum</Table.Cell>
-                    : <Table.Cell
-                        className="bg-lime-100 border-t-4 border-blue-300 md-text:sm lg:text-md xl:text-lg 2xl:text-xl">{sumOfMacronutrients[nutritionName].toFixed(2)}</Table.Cell>
+        return nutritionName === "name" ? null :
+            nutritionName === "product" ?
+                <Table.Cell className="bg-lime-100 border-t-4 border-blue-300 md-text:sm lg:text-md xl:text-lg 2xl:text-xl">total sum</Table.Cell>
+                : <Table.Cell
+                    className="bg-lime-100 border-t-4 border-blue-300 md-text:sm lg:text-md xl:text-lg 2xl:text-xl">{sumOfMacronutrients[nutritionName].toFixed(2)}</Table.Cell>
 
-        }
+    }
     )
 
     const recommendedNutrientValue = {

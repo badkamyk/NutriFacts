@@ -1,44 +1,43 @@
-import { BoltIcon, ChatBubbleBottomCenterTextIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/react/24/outline'
+import { CalendarDaysIcon, GlobeAltIcon, ScaleIcon, ClipboardDocumentIcon } from '@heroicons/react/24/outline'
 
 const features = [
     {
-        name: 'Competitive exchange rates',
+        name: 'Countless recipes',
         description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+            'Choose from a wide variety of recipes, from all over the world. We have recipes for every occasion, from breakfast to dinner, and everything in between.',
         icon: GlobeAltIcon,
     },
     {
-        name: 'No hidden fees',
+        name: 'Analyze your meal',
         description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+            'Type in your ingredients and we will analyze the nutrition facts of your meal.',
         icon: ScaleIcon,
     },
     {
-        name: 'Transfers are instant',
+        name: 'Save your favorite meals',
         description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: BoltIcon,
+            'Save your favorite meals and recipes to your profile, and access them whenever you want.',
+        icon: ClipboardDocumentIcon,
     },
     {
-        name: 'Mobile notifications',
+        name: 'Generate a meal plan',
         description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: ChatBubbleBottomCenterTextIcon,
+            'Generate a meal plan for the week based on your diet type and calories per day.',
+        icon: CalendarDaysIcon,
     },
 ]
 
-export default function Example() {
+export default function Feature() {
     return (
         <div className="bg-white py-12 bg-yellow-50">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="lg:text-center">
-                    <h2 className="text-lg font-semibold text-indigo-600">Transactions</h2>
+                    <h2 className="text-lg font-semibold text-indigo-600">Awareness</h2>
                     <p className="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
-                        A better way to send money
+                        A better way to control important details
                     </p>
                     <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in
-                        accusamus quisquam.
+                        Take care of your daily ingredients and recipes.
                     </p>
                 </div>
 
