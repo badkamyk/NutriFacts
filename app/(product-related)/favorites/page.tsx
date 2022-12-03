@@ -15,7 +15,7 @@ export default function Favorites() {
 
     useEffect(() => {
         const getFavorites = async () => {
-            const response = await fetch(` https://api.spoonacular.com/recipes/informationBulk?ids=${favoritesIDs}&apiKey=YOUR_API_KEY`);
+            const response = await fetch(` https://api.spoonacular.com/recipes/informationBulk?ids=${favoritesIDs}&apiKey=YOUR_SP_API`);
             // const response = await fetch(`recipeBulk.json`);
             const data = await response.json();
             setFavorites(data);
@@ -36,7 +36,7 @@ export default function Favorites() {
                 meals</h1>
             {isLoading ? <Spinner /> : (
                 <div className="grid gap-3 grid-cols-1 grid- md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-5 3xl:grid-cols-6">
-                    {favorites.map((recipe) => (
+                    {favorites?.map((recipe) => (
                         <div key={recipe.id}
                             className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:bg-blue-200 dark:bg-gray-800 dark:border-gray-700">
                             <Link href={`recipe/${recipe.id}`}>

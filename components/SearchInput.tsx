@@ -34,14 +34,14 @@ export default function FindRecipe({ setIngredients, setRecipe, chosenCategory, 
                 const response = await fetch(`https://api.calorieninjas.com/v1/nutrition?query=${search}`, {
                     method: "GET",
                     headers: {
-                        'X-Api-Key': 'YOUR_API_KEY',
+                        'X-Api-Key': 'YOUR_CN_API',
                         "Content-Type": "application/json",
                     },
                 });
                 const parseRes = await response.json();
                 setIngredients && setIngredients(parseRes.items);
             } else if (chosenCategory === "recipe") {
-                const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=1&apiKey=YOUR_API_KEY`, {
+                const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=10&apiKey=YOUR_SP_API`, {
                     method: "GET",
                 });
 

@@ -1,5 +1,7 @@
 "use client";
+import React from "react";
 import Select from "../../../components/Select";
+import Spinner from "../../../components/Spinner";
 import { saveRecipeToLocalStorage, checkIfInLocalStorage } from "../../../utils/localStorageHelpers";
 import { useState } from "react";
 import {
@@ -15,6 +17,7 @@ export default function MealPlanner() {
     const [diet, setDiet] = useState("Choose diet");
     const [data, setData] = useState<WeekType | null>(null);
     const [favoritedMeal, setFavoritedMeal] = useState<string[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const onChangeDiet = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setDiet(e.target.value);
@@ -26,7 +29,7 @@ export default function MealPlanner() {
 
     async function getMeal(calories: string, diet: string) {
         const res = await fetch(
-            `https://api.spoonacular.com/mealplanner/generate?timeFrame=week&targetCalories=${calories}&diet=${diet}&apiKey=YOUR_API_KEY`
+            `https://api.spoonacular.com/mealplanner/generate?timeFrame=week&targetCalories=${calories}&diet=${diet}&apiKey=YOUR_SP_API`
         );
         return res.json();
         // const res = await import("../../../public/mealWeek.json");
@@ -35,10 +38,13 @@ export default function MealPlanner() {
 
     function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        setIsLoading(true);
         const data = getMeal(calories, diet);
         data.then((res) => {
             setData(res);
+            setIsLoading(false);
         });
+
     }
 
     function onFavoriteMeals(meal: DayMealType) {
@@ -153,7 +159,8 @@ export default function MealPlanner() {
                 </button>
             </form>
             <div className="flex flex-col items-center justify-center w-full">
-                {renderMealForOneDay()}
+                {isLoading ? <Spinner /> :
+                    renderMealForOneDay()}
             </div>
         </div>
     );

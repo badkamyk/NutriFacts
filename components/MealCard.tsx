@@ -26,7 +26,7 @@ export default function MealCard({ mealInfo, addedToFavorites, setAddedToFavorit
                 imgSrc={mealInfo.image}
 
             >
-                <Link href={``}>
+                <Link href={`/recipe/${mealInfo.id}`}>
                     <h3 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
                         {mealInfo.title}
                     </h3>

@@ -8,7 +8,7 @@ import Table from "../../../../components/Table";
 
 
 async function getRecipe(id: string) {
-    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=YOUR_API_KEY`);
+    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=YOUR_SP_API`);
     return res.json();
     // const res = await import("../../../../public/response.json");
     // return res.default;
