@@ -3,7 +3,6 @@ import { IngredientType } from "./types/IngredientType";
 import { Table } from "flowbite-react";
 
 
-
 export default function ProductInfo({ ingredients }: { ingredients: Array<IngredientType> }) {
     const macronutrientsValues = Object.keys({ product: "Product", ...ingredients[0] });
     const tableHead = macronutrientsValues.map((name) => {

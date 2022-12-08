@@ -111,12 +111,6 @@ export default function Hero() {
                                             </a>
                                         ))}
                                     </div>
-                                    {/*<a*/}
-                                    {/*    href="#"*/}
-                                    {/*    className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100"*/}
-                                    {/*>*/}
-                                    {/*    Log in*/}
-                                    {/*</a>*/}
                                 </div>
                             </Popover.Panel>
                         </Transition>
@@ -135,12 +129,6 @@ export default function Hero() {
                             </p>
                             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                 <div className="rounded-md shadow">
-                                    {/*<a*/}
-                                    {/*    href=""*/}
-                                    {/*    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"*/}
-                                    {/*>*/}
-                                    {/*    Analyze nutrition*/}
-                                    {/*</a>*/}
                                     <Link href="/analyze"
                                         className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
                                     >

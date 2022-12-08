@@ -4,14 +4,10 @@ import Spinner from "../../../../components/Spinner";
 import Image from "next/image";
 import Table from "../../../../components/Table";
 
-// import { saveRecipeToLocalStorage } from "../../../../utils/localStorageHelpers";
-
 
 async function getRecipe(id: string) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=YOUR_SP_API`);
     return res.json();
-    // const res = await import("../../../../public/response.json");
-    // return res.default;
 }
 
 const usedNutrients = [

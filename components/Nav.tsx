@@ -1,10 +1,6 @@
 'use client'
-// import '../app/globals.css'
-
 import { Navbar, Button } from "flowbite-react";
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-
 
 export default function Nav() {
     const pathname = usePathname();

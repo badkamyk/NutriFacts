@@ -32,8 +32,6 @@ export default function MealPlanner() {
             `https://api.spoonacular.com/mealplanner/generate?timeFrame=week&targetCalories=${calories}&diet=${diet}&apiKey=YOUR_SP_API`
         );
         return res.json();
-        // const res = await import("../../../public/mealWeek.json");
-        // return res.default;
     }
 
     function onSubmit(e: React.FormEvent<HTMLFormElement>) {
