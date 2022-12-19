@@ -46,8 +46,9 @@ export default function Feature() {
                         {features.map((feature) => (
                             <div key={feature.name} className="relative">
                                 <dt>
-                                    <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
-                                        <feature.icon className="h-6 w-6" aria-hidden="true" />
+                                    <div
+                                        className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
+                                        <feature.icon className="h-6 w-6" aria-hidden="true"/>
                                     </div>
                                     <p className="ml-16 text-lg font-medium leading-6 text-gray-900">{feature.name}</p>
                                 </dt>

@@ -76,7 +76,8 @@ export default function MealPlanner() {
                         <h2 className="text-2xl font-bold text-center my-1 px-2 py-1 mr-2 xl:text-lg 2xl:text-xl leading-5 text-blue-800 bg-blue-100 rounded-full dark:bg-blue-700 dark:text-blue-100">
                             {key.toUpperCase()}
                         </h2>
-                        <div className="text-xl font-bold text-center my-6 px-2 md:w-[40%] py-1 mx-auto xl:text-lg 2xl:text-xl leading-5 text-blue-800 bg-green-100 rounded-full dark:bg-blue-700 dark:text-blue-100">
+                        <div
+                            className="text-xl font-bold text-center my-6 px-2 md:w-[40%] py-1 mx-auto xl:text-lg 2xl:text-xl leading-5 text-blue-800 bg-green-100 rounded-full dark:bg-blue-700 dark:text-blue-100">
                             <h3 className="text-2xl w-[50%] font-bold text-center my-1 px-2 py-2 xl:w-[40%] mx-auto xl:text-lg 2xl:text-xl leading-5 text-blue-800 bg-green-200 rounded-full dark:bg-blue-700 dark:text-blue-100">
                                 Nutrients
                             </h3>
@@ -98,9 +99,14 @@ export default function MealPlanner() {
                                                 {meal.servings} servings
                                             </p>
                                         </Link>
-                                        <div className="absolute w-6 h-6 top-3 right-5" onClick={() => onFavoriteMeals(meal)}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" fill={checkIfInLocalStorage(meal.id.toString()) ? "red" : "none"} className="w-6 h-6 hover:fill-red-500">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                        <div className="absolute w-6 h-6 top-3 right-5"
+                                             onClick={() => onFavoriteMeals(meal)}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                 strokeWidth={1.5} stroke="currentColor"
+                                                 fill={checkIfInLocalStorage(meal.id.toString()) ? "red" : "none"}
+                                                 className="w-6 h-6 hover:fill-red-500">
+                                                <path strokeLinecap="round" strokeLinejoin="round"
+                                                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
                                             </svg>
                                         </div>
                                     </div>
@@ -157,7 +163,7 @@ export default function MealPlanner() {
                 </button>
             </form>
             <div className="flex flex-col items-center justify-center w-full">
-                {isLoading ? <Spinner /> :
+                {isLoading ? <Spinner/> :
                     renderMealForOneDay()}
             </div>
         </div>

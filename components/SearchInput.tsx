@@ -80,8 +80,7 @@ export default function FindRecipe({ setIngredients, setRecipe, chosenCategory, 
             <form onSubmit={onSubmitForm} className="px-3">
                 <div className="flex">
                     <label htmlFor="search-dropdown"
-                        className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Your
-                        Email</label>
+                        className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Your meal ingredients</label>
                     <button id="dropdown-button" data-dropdown-toggle="dropdown"
                         className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
                         type="button">{buttonText}

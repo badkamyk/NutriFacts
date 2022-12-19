@@ -3,7 +3,11 @@ import { Card } from "flowbite-react"
 import Link from "next/link"
 import { saveRecipeToLocalStorage, checkIfInLocalStorage } from "../utils/localStorageHelpers"
 
-export default function MealCard({ mealInfo, addedToFavorites, setAddedToFavorites }: { mealInfo: RecipeType, addedToFavorites: string[], setAddedToFavorites: React.Dispatch<React.SetStateAction<string[]>> }) {
+export default function MealCard({
+                                     mealInfo,
+                                     addedToFavorites,
+                                     setAddedToFavorites
+                                 }: { mealInfo: RecipeType, addedToFavorites: string[], setAddedToFavorites: React.Dispatch<React.SetStateAction<string[]>> }) {
 
     function handleSaveRecipe() {
         saveRecipeToLocalStorage(mealInfo.id.toString());
@@ -32,10 +36,12 @@ export default function MealCard({ mealInfo, addedToFavorites, setAddedToFavorit
                     </h3>
                 </Link>
                 <div className="mt-2.5 mb-5 flex items-center">
-                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400 mr-1 w-[50%]">{`${mealInfo.missedIngredientCount} missing ingredients`} </span>
+                    <span
+                        className="text-sm font-medium text-gray-500 dark:text-gray-400 mr-1 w-[50%]">{`${mealInfo.missedIngredientCount} missing ingredients`} </span>
                     <div className="flex gap-1 flex-wrap max-w-sm w-[50%]">
                         {mealInfo.missedIngredients.map((ingredient, index) => (
-                            <span key={index} className="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-800 dark:bg-blue-200 dark:text-blue-800">{ingredient.name}</span>
+                            <span key={index}
+                                  className="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-800 dark:bg-blue-200 dark:text-blue-800">{ingredient.name}</span>
                         ))}
                     </div>
                 </div>
