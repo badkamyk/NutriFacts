@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import heroPic from '../public/tangerine-newt-RgT22Ixcq4Y-unsplash-min.jpg'
 import logo from '../public/logo.png'
+import Nav from './Nav'
 
 const navigation = [
     { name: 'Home', href: '/' },
@@ -154,7 +155,7 @@ export default function Hero() {
                     // height={300}
                     className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
                     src={heroPic}
-                    alt=""
+                    alt="Image with vegetables"
                 />
             </div>
         </div>
