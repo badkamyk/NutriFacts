@@ -1,3 +1,4 @@
+'use client'
 import { RecipeType } from "./types/RecipeType";
 import MealCard from "./MealCard";
 import { useState } from "react";

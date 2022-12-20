@@ -1,3 +1,4 @@
+'use client'
 import { CalendarDaysIcon, GlobeAltIcon, ScaleIcon, ClipboardDocumentIcon } from '@heroicons/react/24/outline'
 
 export const features = [
