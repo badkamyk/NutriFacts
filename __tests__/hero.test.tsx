@@ -2,7 +2,7 @@ import Hero from "../components/Hero";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-describe("Hero", () => {
+export const heroTest = () => describe("Hero", () => {
     beforeEach(() => {
         render(<Hero/>);
     });
@@ -41,3 +41,5 @@ describe("Hero", () => {
         expect(heroImage).toBeInTheDocument();
     });
 });
+
+heroTest();

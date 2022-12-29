@@ -2,7 +2,7 @@ import Footer from '../components/Footer';
 import '@testing-library/jest-dom'
 import { render, screen } from "@testing-library/react";
 
-describe('Footer', () => {
+export const footerTest = () => describe('Footer', () => {
     beforeEach(() => {
         render(<Footer/>)
     })
@@ -24,3 +24,5 @@ describe('Footer', () => {
     })
 
 })
+
+footerTest();

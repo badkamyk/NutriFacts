@@ -28,20 +28,18 @@ export default function Hero() {
                         preserveAspectRatio="none"
                         aria-hidden="true"
                     >
-                        <polygon points="50,0 100,0 50,100 0,100"/>
+                        <polygon points="50,0 100,0 50,100 0,100" />
                     </svg>
 
                     <Popover>
                         <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
                             <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start"
-                                 aria-label="Global">
+                                aria-label="Global">
                                 <div className="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
                                     <div className="flex w-full items-center justify-between md:w-auto">
                                         <Link href="#">
                                             <span className="sr-only">NutriFacts</span>
                                             <Image
-                                                // width={500}
-                                                // height={500}
                                                 alt="Your Company"
                                                 className="h-12 w-auto sm:h-8 md:h-20 lg:h-24 xl:h-28 2xl:h-28"
                                                 src={logo}
@@ -51,7 +49,7 @@ export default function Hero() {
                                             <Popover.Button
                                                 className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                                                 <span className="sr-only">Open main menu</span>
-                                                <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
+                                                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                                             </Popover.Button>
                                         </div>
                                     </div>
@@ -59,7 +57,7 @@ export default function Hero() {
                                 <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
                                     {navigation.map((item) => (
                                         <a key={item.name} href={item.href}
-                                           className="font-medium text-gray-500 hover:text-gray-900">
+                                            className="font-medium text-gray-500 hover:text-gray-900">
                                             {item.name}
                                         </a>
                                     ))}
@@ -96,7 +94,7 @@ export default function Hero() {
                                             <Popover.Button
                                                 className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                                                 <span className="sr-only">Close main menu</span>
-                                                <XMarkIcon className="h-6 w-6" aria-hidden="true"/>
+                                                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                                             </Popover.Button>
                                         </div>
                                     </div>
@@ -130,7 +128,7 @@ export default function Hero() {
                             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                 <div className="rounded-md shadow">
                                     <Link href="/analyze"
-                                          className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
+                                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
                                     >
                                         Analyze nutrition
                                     </Link>

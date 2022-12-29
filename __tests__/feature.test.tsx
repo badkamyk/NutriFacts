@@ -1,10 +1,9 @@
-import Feature from "../components/Feature";
-import { features } from "../components/Feature"
+import Feature, { features } from "../components/Feature";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
 
-describe("Feature", () => {
+export const featureTest = () => describe("Feature", () => {
     beforeEach(() => {
         render(<Feature/>);
     });
@@ -36,3 +35,5 @@ describe("Feature", () => {
         });
     })
 });
+
+featureTest();

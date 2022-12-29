@@ -18,7 +18,7 @@ export default function Nav() {
                 <Button className={"mr-6 text-md xl:p-2"}>
                     <span className={"md:text-md lg:text-lg xl:text-xl 2xl:text-2xl"}>Shop</span>
                 </Button>
-                <Navbar.Toggle/>
+                <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
                 <Navbar.Link

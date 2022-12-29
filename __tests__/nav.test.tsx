@@ -2,7 +2,7 @@ import Nav from '../components/Nav';
 import '@testing-library/jest-dom'
 import { render, screen } from "@testing-library/react";
 
-describe('Nav', () => {
+export const navTest = () => describe('Nav', () => {
     beforeEach(() => {
         render(<Nav/>)
     })
@@ -35,3 +35,5 @@ describe('Nav', () => {
         expect(shopButton).toBeInTheDocument()
     })
 })
+
+navTest()
