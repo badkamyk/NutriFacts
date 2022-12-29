@@ -4,7 +4,7 @@ import Input from "../components/Input";
 
 describe("Input", () => {
     beforeEach(() => {
-        render(<Input name={"name"} value={""} type={"text"} className={"w-full"} placeholder={"Search"}/>);
+        render(<Input name={"name"} type={"text"} className={"w-full"} placeholder={"Search"}/>);
     });
 
     it("renders an input component", () => {
@@ -25,11 +25,6 @@ describe("Input", () => {
     it("renders an input component with a type", () => {
         const input = screen.getByRole("textbox");
         expect(input).toHaveAttribute("type", "text");
-    });
-
-    it("renders an input component with a value", () => {
-        const input = screen.getByRole("textbox");
-        expect(input).toHaveValue("");
     });
 
     it("renders an input component with a name", () => {
