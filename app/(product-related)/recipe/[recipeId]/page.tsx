@@ -10,7 +10,7 @@ async function getRecipe(id: string) {
     return res.json();
 }
 
-const usedNutrients = [
+export const usedNutrients = [
     "Calories",
     "Fat",
     "Carbohydrates",
