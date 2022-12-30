@@ -20,19 +20,6 @@ export const heroTest = () => describe("Hero", () => {
         expect(heroDescription).toBeInTheDocument();
     });
 
-    it("renders a hero component analyze link", () => {
-        const heroLink = screen.getByRole("link", {
-            name: "Analyze nutrition",
-        });
-        expect(heroLink).toBeInTheDocument();
-    });
-
-    it("renders a hero component shop link", () => {
-        const heroShopLink = screen.getByRole("link", {
-            name: "Shop",
-        });
-        expect(heroShopLink).toBeInTheDocument();
-    });
 
     it("renders a hero component image", () => {
         const heroImage = screen.getByRole("img", {
