@@ -1,10 +1,14 @@
+import { forwardRef } from "react";
+
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     className?: string
     ref?: React.Ref<HTMLInputElement>
 }
 
-export default function Input({ className, ...props }: InputProps) {
+// eslint-disable-next-line react/display-name
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
+    const { className, ...rest } = props;
     return (
-        <input role="textbox" className={className} {...props}/>
-    );
-}
+        <input className={className} ref={ref} {...rest} />
+    )
+});

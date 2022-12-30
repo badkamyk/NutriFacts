@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Input from "../components/Input";
+import { Input } from "../components/Input";
 
 describe("Input", () => {
     beforeEach(() => {

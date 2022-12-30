@@ -6,17 +6,18 @@ import { Table } from "flowbite-react";
 export default function ProductInfo({ ingredients }: { ingredients: Array<IngredientType> }) {
     const macronutrientsValues = Object.keys({ product: "Product", ...ingredients[0] });
     const tableHead = macronutrientsValues.map((name) => {
-        return name === "name" ? null : <Table.HeadCell
-            className="md-text:sm lg:text-md xl:text-md 2xl:text-lg">{name.replaceAll("_", " ")}</Table.HeadCell>
+        return name === "name" ? null : <Table.HeadCell key={name} role="columnheader"
+                                                        className="md-text:sm lg:text-md xl:text-md 2xl:text-lg">{name.replaceAll("_", " ")}</Table.HeadCell>
     })
 
     const tableBody = ingredients.map((ingredient) => {
         const productAddedObj = { product: ingredient.name, ...ingredient }
         return (
-            <Table.Row key={productAddedObj.name} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+            <Table.Row key={productAddedObj.fat_saturated_g} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 {macronutrientsValues.map((nutritionName) => {
                     return nutritionName === "name" ? null :
                         <Table.Cell
+                            key={productAddedObj.calories + Math.random()}
                             className="md-text:sm lg:text-md xl:text-md 2xl:text-xl">{productAddedObj[nutritionName as keyof IngredientType]}</Table.Cell>
                 })}
             </Table.Row>
@@ -36,13 +37,15 @@ export default function ProductInfo({ ingredients }: { ingredients: Array<Ingred
 
     const sumOfMacronutrients = sumNutrientsByKey(ingredients);
 
-    const sumNutrientsHTML = macronutrientsValues.map((nutritionName) => {
+    const sumNutrientsHTML = macronutrientsValues.map((nutritionName, index) => {
             return nutritionName === "name" ? null :
                 nutritionName === "product" ?
                     <Table.Cell
+                        key={nutritionName + index}
                         className="bg-lime-100 border-t-4 border-blue-300 md-text:sm lg:text-md xl:text-lg 2xl:text-xl">total
                         sum</Table.Cell>
                     : <Table.Cell
+                        key={nutritionName + index}
                         className="bg-lime-100 border-t-4 border-blue-300 md-text:sm lg:text-md xl:text-lg 2xl:text-xl">{sumOfMacronutrients[nutritionName].toFixed(2)}</Table.Cell>
 
         }
@@ -55,16 +58,16 @@ export default function ProductInfo({ ingredients }: { ingredients: Array<Ingred
         sugar_g: 36,
     }
 
-    const createPercentageParagraph = (nutritionName: string, recommendedValue: number) => {
+    const createPercentageParagraph = (nutritionName: string, recommendedValue: number, key: string) => {
         const percentage = (sumOfMacronutrients[nutritionName] / recommendedValue) * 100;
-        return <p
-            className={`text-sm md-text:sm lg:text-md xl:text-lg 2xl:text-xl ${percentage > 100 && "text-red-600"}`}>{percentage.toFixed(1)}
+        return <p key={key}
+                  className={`text-sm md-text:sm lg:text-md xl:text-lg 2xl:text-xl ${percentage > 100 && "text-red-600"}`}>{percentage.toFixed(1)}
             % of recommended {nutritionName.replaceAll("_", " ")} value</p>
     }
 
     const renderPercentageHTML = () => {
         return Object.keys(recommendedNutrientValue).map((nutritionName) => {
-            return createPercentageParagraph(nutritionName, recommendedNutrientValue[nutritionName as keyof typeof recommendedNutrientValue])
+            return createPercentageParagraph(nutritionName, recommendedNutrientValue[nutritionName as keyof typeof recommendedNutrientValue], nutritionName + Math.random())
         })
     }
 
@@ -77,7 +80,9 @@ export default function ProductInfo({ ingredients }: { ingredients: Array<Ingred
                     </Table.Head>
                     <Table.Body className="divide-y">
                         {tableBody}
-                        {sumNutrientsHTML}
+                        <Table.Row>
+                            {sumNutrientsHTML}
+                        </Table.Row>
                     </Table.Body>
                 </Table>
                 <div>

@@ -4,7 +4,7 @@ import Script from 'next/script';
 import Head from 'next/head';
 import { IngredientType } from "./types/IngredientType";
 import { RecipeType } from "./types/RecipeType";
-import Input from "./Input";
+import { Input } from "./Input";
 
 
 type SearchType = {
@@ -31,7 +31,7 @@ export default function FindRecipe({ setIngredients, setRecipe, chosenCategory, 
                 const response = await fetch(`https://api.calorieninjas.com/v1/nutrition?query=${search}`, {
                     method: "GET",
                     headers: {
-                        'X-Api-Key': 'YOUR_CN_API',
+                        'X-Api-Key': 'UGlblX8n293BSd3x3UL5pKDrHpYo9iFzLpV6LzmM',
                         "Content-Type": "application/json",
                     },
                 });
