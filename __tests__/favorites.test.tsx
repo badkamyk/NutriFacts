@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { navTest } from "./nav.test";
 import { footerTest } from "./footer.test";
-import fetch from "jest-fetch-mock";
 
 describe("FavoritePage", () => {
     beforeEach(() => {

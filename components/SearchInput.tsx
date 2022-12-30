@@ -31,7 +31,7 @@ export default function FindRecipe({ setIngredients, setRecipe, chosenCategory, 
                 const response = await fetch(`https://api.calorieninjas.com/v1/nutrition?query=${search}`, {
                     method: "GET",
                     headers: {
-                        'X-Api-Key': 'UGlblX8n293BSd3x3UL5pKDrHpYo9iFzLpV6LzmM',
+                        'X-Api-Key': 'YOUR_CP_API',
                         "Content-Type": "application/json",
                     },
                 });
