@@ -7,6 +7,7 @@ import { checkIfInLocalStorage, saveRecipeToLocalStorage } from "../../../utils/
 import "../../../public/recipeBulk.json"
 import { RecipeDetails } from "../../../components/types/RecipeDetails";
 
+
 export default function Favorites() {
     const [favoritesIDs, setFavoritesIDs] = useState<string>(localStorage.getItem("savedRecipes") || "");
     const [favorites, setFavorites] = useState<RecipeDetails[]>([]);
@@ -15,8 +16,8 @@ export default function Favorites() {
     useEffect(() => {
             const getFavorites = async () => {
                 try {
-                    // const response = await fetch(` https://api.spoonacular.com/recipes/informationBulk?ids=${favoritesIDs}&apiKey=YOUR_SP_API`);
-                    const response = await fetch(`recipeBulk.jso`);
+                    const response = await fetch(` https://api.spoonacular.com/recipes/informationBulk?ids=${favoritesIDs}&apiKey=YOUR_SP_API`);
+                    // const response = await fetch(`recipeBulk.jso`);
                     const data = await response.json();
                     setFavorites(data);
                 } catch (error) {
