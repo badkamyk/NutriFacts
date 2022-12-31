@@ -23,7 +23,7 @@ export default function MealCard({
     }
 
     return (
-        <div className="max-w-[310px] flex-auto flex flex-col justify-between">
+        <div className="max-w-[310px] flex-auto flex flex-col justify-between" role="figure">
             <Card
                 className="h-full max-w-full mx-auto"
                 imgAlt={mealInfo.title}
