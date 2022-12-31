@@ -30,7 +30,7 @@ const recipe: RecipeType = {
     likes: 1,
 };
 
-describe("MealCard", () => {
+describe("MealCard without favorites", () => {
     beforeEach(() => {
         render(<MealCard mealInfo={recipe} addedToFavorites={[]} setAddedToFavorites={() => {
         }}/>);
@@ -67,4 +67,10 @@ describe("MealCard", () => {
         const button = screen.getByRole("button");
         expect(button).toHaveClass("rounded-lg bg-green-500 ml-2 px-4 py-3.5 text-center text-sm font-medium text-white hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800");
     });
+
+    it("renders a button with a text", () => {
+        const button = screen.getByRole("button");
+        expect(button).toHaveTextContent("Add to favorites");
+    });
 });
+

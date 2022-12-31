@@ -1,7 +1,7 @@
 import { RecipeType } from "./types/RecipeType";
 import { Card } from "flowbite-react"
 import Link from "next/link"
-import { saveRecipeToLocalStorage, checkIfInLocalStorage } from "../utils/localStorageHelpers"
+import { checkIfInLocalStorage, saveRecipeToLocalStorage } from "../utils/localStorageHelpers"
 
 export default function MealCard({
                                      mealInfo,
