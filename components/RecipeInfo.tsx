@@ -15,7 +15,7 @@ export default function RecipeInfo({ recipe }: { recipe: Array<RecipeType> }) {
 
     return (
         setRecipeAsc.length > 0 ?
-            <div
+            <div role="list"
                 className="max-w-full flex md:flex-row lg:flex-row xl:flex-row 2xl:flex-row gap-6 flex-wrap mb-3 justify-center">
                 {setRecipeAsc.map((recipe) => (
                     <MealCard key={recipe.title} mealInfo={recipe} addedToFavorites={addedToFavorites}

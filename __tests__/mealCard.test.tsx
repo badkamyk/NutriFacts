@@ -30,7 +30,7 @@ const recipe: RecipeType = {
     likes: 1,
 };
 
-describe("MealCard without favorites", () => {
+export const MealCardTest = () => describe("MealCard without favorites", () => {
     beforeEach(() => {
         render(<MealCard mealInfo={recipe} addedToFavorites={[]} setAddedToFavorites={() => {
         }}/>);
@@ -74,3 +74,4 @@ describe("MealCard without favorites", () => {
     });
 });
 
+MealCardTest();
