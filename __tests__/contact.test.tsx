@@ -90,4 +90,19 @@ describe('Contact', () => {
         const button = screen.getByRole('button');
         expect(button).toHaveTextContent("Send message")
     });
+
+    it('renders an email label', () => {
+        const label = screen.getByText("Your email");
+        expect(label).toBeInTheDocument()
+    });
+
+    it('renders a subject label', () => {
+        const label = screen.getByText("Subject");
+        expect(label).toBeInTheDocument()
+    });
+
+    it('renders a message label', () => {
+        const label = screen.getByText("Your message");
+        expect(label).toBeInTheDocument()
+    });
 });
