@@ -30,4 +30,33 @@ describe('Contact', () => {
         expect(subtitle).toHaveClass("mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl")
     });
 
+    it('renders a form', () => {
+        const form = screen.getByRole('form');
+        expect(form).toBeInTheDocument()
+    });
+
+    it('renders a form with a class name', () => {
+        const form = screen.getByRole('form');
+        expect(form).toHaveClass("space-y-8")
+    });
+
+    it('renders all inputs', () => {
+        const inputs = screen.getAllByRole('textbox');
+        expect(inputs).toHaveLength(3)
+    });
+
+    it('renders input with type email', () => {
+    const input = screen.getAllByRole('textbox')[0];
+        expect(input).toHaveAttribute('type', 'email')
+    });
+
+    it('renders subject input with type text', () => {
+    const input = screen.getAllByRole('textbox')[1];
+        expect(input).toHaveAttribute('type', 'text')
+    });
+
+    it('renders textarea ', () => {
+        const input = screen.getAllByRole('textbox')[2];
+        expect(input).toHaveAttribute('placeholder', "Leave a comment...")
+    });
 });

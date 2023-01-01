@@ -40,7 +40,7 @@ export default function Contact() {
                 <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl" role="subtitle">Got a
                     technical issue? Want to send feedback about a feature? Need details about our Business plan?
                     Let us know.</p>
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-8" role="form">
                     <div>
                         <label htmlFor="email"
                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
