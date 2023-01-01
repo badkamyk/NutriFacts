@@ -2,6 +2,8 @@ import Nav from '../components/Nav';
 import '@testing-library/jest-dom'
 import { render, screen } from "@testing-library/react";
 
+const navLinksText = ["NutriFacts", "Home", "Nutrition analysis", "Meal planner", "Favorites", "Contact"];
+
 export const navTest = () => describe('Nav', () => {
     beforeEach(() => {
         render(<Nav/>)
@@ -17,15 +19,9 @@ export const navTest = () => describe('Nav', () => {
 
     it("renders proper link text", () => {
         const navLinks = screen.getAllByRole('link')
-        // navLinks.forEach((link) => {
-        //     expect(link).toHaveTextContent(/home|nutrition analysis|meal planner|favorites|contact|shop/i)
-        // })
-        expect(navLinks[0]).toHaveTextContent("NutriFacts")
-        expect(navLinks[1]).toHaveTextContent("Home")
-        expect(navLinks[2]).toHaveTextContent("Nutrition analysis")
-        expect(navLinks[3]).toHaveTextContent("Meal planner")
-        expect(navLinks[4]).toHaveTextContent("Favorites")
-        expect(navLinks[5]).toHaveTextContent("Contact")
+        navLinks.forEach((link, index) => {
+            expect(link).toHaveTextContent(navLinksText[index])
+        });
     })
 
     it("renders a shop span button", () => {
