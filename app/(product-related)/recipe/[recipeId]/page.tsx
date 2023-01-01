@@ -23,7 +23,7 @@ export const usedNutrients = [
 ]
 
 
-function Details(details: RecipeDetails) {
+export function Details(details: RecipeDetails) {
     return (
         <div
             className="p-3 max-w-full border-b-2 border-blue-200 md:flex md:flex-col md:justify-center md:items-center xl:items-start xl:gap-2 xl:p-16">
@@ -37,20 +37,20 @@ function Details(details: RecipeDetails) {
                     </svg>
                 </div>
             </header>
-            <div className="md:flex">
+            <div className="md:flex" role="diet-group">
                 {details.diets.map((diet, index) => (
-                    <span key={index}
+                    <span key={index} role="diet-item"
                           className="my-1 inline-block px-2 py-1 mr-2 text-sm xl:text-lg font-medium leading-5 text-blue-800 bg-blue-100 rounded-full dark:bg-blue-700 dark:text-blue-100">{diet}</span>
                 ))}
             </div>
-            <div className="flex my-3 gap-3 justify-evenly xl:gap-6">
+            <div className="flex my-3 gap-3 justify-evenly xl:gap-6" role="macronutrients-group">
                 <div>
                     <p className="text-sm text-gray-500 md:text-md xl:text-xl dark:text-gray-400">Total</p>
-                    <p className="text-sm text-gray-500 md:text-md xl:text-lg dark:text-gray-400">
+                    <p className="text-sm text-gray-500 md:text-md xl:text-lg dark:text-gray-400" data-testid="prepare-time">
                         <b>{details.readyInMinutes}</b> minutes</p>
                 </div>
                 {Object.entries(details.nutrition.caloricBreakdown).map(([key, value]) => (
-                    <div key={key}>
+                    <div key={key} role="caloric-item">
                         <p className="text-sm text-gray-500 md:text-md xl:text-xl dark:text-gray-400">{key.replace("percent", "")}</p>
                         <p className="text-sm text-gray-500 md:text-md xl:text-lg dark:text-gray-400">
                             <b>{Math.floor(value)}%</b>
@@ -60,7 +60,7 @@ function Details(details: RecipeDetails) {
                 ))}
             </div>
             <div
-                className=" lg:flex lg:flex-col xl:flex-row gap-9 mb-5 xl:justify-center items-start 2xl:flex">
+                className="lg:flex lg:flex-col xl:flex-row gap-9 mb-5 xl:justify-center items-start 2xl:flex">
                 <Image className="mb-2 md:mx-auto" src={details.image} alt={details.title} width={500} height={500}/>
                 <div className="flex flex-col gap-3 mb-5 xl:w-[40%]">
                     <h5 className="text-center text-xl font-bold dark:text-white xl:text-start">Nutrition per
@@ -69,7 +69,7 @@ function Details(details: RecipeDetails) {
                         className="flex max-w-full flex-wrap gap-1 justify-center items-start border-b-1 border-blue-600 xl:flex-row xl:max-w-full xl:justify-start xl:items-center">
                         {details.nutrition.nutrients.map((nutrient, index) => (
                             usedNutrients.includes(nutrient.name) && (
-                                <div
+                                <div role="nutrient-item"
                                     key={index}
                                     className="flex flex-col text-center gap-1 my-1.5 px-2 py-5 mr-2 text-sm font-medium leading-5 text-blue-800 bg-yellow-100 rounded-full dark:bg-blue-700 dark:text-blue-100">
                                     <p className="text-sm text-gray-500 md:text-md dark:text-gray-400">{nutrient.name}</p>
@@ -95,7 +95,7 @@ function Details(details: RecipeDetails) {
             <div className="mb-12 md:max-w-[80%] md:mx-auto xl:max-w-[70%] xl:border-b-2 xl:border-blue-300 xl:pb-9">
                 <h5 className="text-center text-xl font-bold dark:text-white mb-2">Instructions</h5>
                 <div className="text-sm text-gray-500 md:text-md dark:text-gray-400 xl:text-lg 2xl:text-xl">
-                    <p> {details.instructions.replaceAll(".", ". ")}wash and rinse pork chops and place into the
+                    <p role="description"> {details.instructions.replaceAll(".", ". ")}wash and rinse pork chops and place into the
                         skillet.cut them into bite sized pieces and add half of the Basil Garlic simmer sauce.boil your
                         water and start working on cooking your bow-tie pasta.when you have finished with boiling and
                         draining your pasta, add it to the pork along with the rest of the Basil Garlic Simmering Sauce,
