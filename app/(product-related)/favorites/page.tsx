@@ -26,7 +26,7 @@ export default function Favorites() {
                 setIsLoading(false);
             }
 
-            // const response = await fetch(` https://api.spoonacular.com/recipes/informationBulk?ids=${favoritesIDs}&apiKey=1f8b893d6e974ffc9d5c876adda37002`);
+            // const response = await fetch(` https://api.spoonacular.com/recipes/informationBulk?ids=${favoritesIDs}&apiKey=YOUR_SP_API`);
             // // const response = await fetch(`recipeBulk.json`);
             // const data = await response.json();
             // setFavorites(data);

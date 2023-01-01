@@ -95,12 +95,7 @@ export function Details(details: RecipeDetails) {
             <div className="mb-12 md:max-w-[80%] md:mx-auto xl:max-w-[70%] xl:border-b-2 xl:border-blue-300 xl:pb-9">
                 <h5 className="text-center text-xl font-bold dark:text-white mb-2">Instructions</h5>
                 <div className="text-sm text-gray-500 md:text-md dark:text-gray-400 xl:text-lg 2xl:text-xl">
-                    <p role="description"> {details.instructions.replaceAll(".", ". ")}wash and rinse pork chops and place into the
-                        skillet.cut them into bite sized pieces and add half of the Basil Garlic simmer sauce.boil your
-                        water and start working on cooking your bow-tie pasta.when you have finished with boiling and
-                        draining your pasta, add it to the pork along with the rest of the Basil Garlic Simmering Sauce,
-                        mixing lightly.Next you will top with the Chunky Bruschetta Finishing Sauce, cover with
-                        Parmesan, and cover. Cooking on low heat 2 to 3 minutes or until heated through.</p>
+                    <p role="description"> {details.instructions.replaceAll(".", ". ")}</p>
                 </div>
             </div>
             <div className="mb-12 md:max-w-[80%] md:mx-auto xl:max-w-[70%] xl:border-b-2 xl:border-blue-300 xl:pb-9">
