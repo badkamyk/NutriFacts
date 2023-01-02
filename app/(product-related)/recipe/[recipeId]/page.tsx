@@ -95,7 +95,7 @@ export function Details(details: RecipeDetails) {
             <div className="mb-12 md:max-w-[80%] md:mx-auto xl:max-w-[70%] xl:border-b-2 xl:border-blue-300 xl:pb-9">
                 <h5 className="text-center text-xl font-bold dark:text-white mb-2">Instructions</h5>
                 <div className="text-sm text-gray-500 md:text-md dark:text-gray-400 xl:text-lg 2xl:text-xl">
-                    <p role="description"> {details.instructions.replaceAll(".", ". ")}</p>
+                    <p role="description">{details.instructions.replaceAll(".", ". ")}</p>
                 </div>
             </div>
             <div className="mb-12 md:max-w-[80%] md:mx-auto xl:max-w-[70%] xl:border-b-2 xl:border-blue-300 xl:pb-9">

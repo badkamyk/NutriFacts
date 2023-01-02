@@ -244,10 +244,10 @@ describe("Details", () => {
         expect(paragraph).toBeInTheDocument();
     });
 
-    // it('renders instructions paragraph with text', () => {
-    //     const paragraph = screen.getByRole("description");
-    //     expect(paragraph.textContent).toEqual(mockRecipeDetails.instructions.replaceAll(".", ". "));
-    // });
+    it('renders instructions paragraph with text', () => {
+        const paragraph = screen.getByRole("description");
+        expect(paragraph.textContent).toEqual(mockRecipeDetails.instructions.replaceAll(".", ". "));
+    });
 
     it('renders summary heading h5', () => {
         const heading = screen.getByRole("heading", { name: "Summary" });

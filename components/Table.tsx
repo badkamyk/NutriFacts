@@ -14,7 +14,7 @@ export default function Table({ nutrients }: { nutrients: NutrientsType }) {
 
     return (
         <div className="overflow-x-auto relative overflow-y-auto max-h-[400px]">
-            <table role="table" className="w-full text-sm text-left text-gray-500 dark:text-gray-400 relative">
+            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 relative">
                 <thead role="rowgroup" className="text-xs text-gray-900 uppercase dark:text-gray-400 sticky top-0 bg-blue-200">
                 <tr role="row">
                     {tableHeadings.map((heading, index) => (
