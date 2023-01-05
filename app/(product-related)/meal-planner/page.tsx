@@ -13,8 +13,8 @@ import {
 import Link from "next/link";
 
 export default function MealPlanner() {
-    const [calories, setCalories] = useState("Choose calories");
-    const [diet, setDiet] = useState("Choose diet");
+    const [calories, setCalories] = useState("1500");
+    const [diet, setDiet] = useState("Vegan");
     const [data, setData] = useState<WeekType | null>(null);
     const [favoritedMeal, setFavoritedMeal] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -154,10 +154,12 @@ export default function MealPlanner() {
                     options={["1500", "2000", "2500", "3000", "3500", "4000", "4500", "5000"]}
                 />
                 <button
-                    disabled={buttonDisabled}
+                    // disabled={buttonDisabled}
                     type="submit"
+                    // className={`mt-6 w-full py-3 px-4 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600
+                    //  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${buttonDisabled && "opacity-50 cursor-not-allowed"}`}
                     className={`mt-6 w-full py-3 px-4 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600
-                     hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${buttonDisabled && "opacity-50 cursor-not-allowed"}`}
+                     hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
                 >
                     Plan my meal
                 </button>

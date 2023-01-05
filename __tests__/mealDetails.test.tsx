@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { Details } from "../app/(product-related)/recipe/[recipeId]/page";
 import { RecipeDetails } from "../components/types/RecipeDetails";
 import { usedNutrients } from "../app/(product-related)/recipe/[recipeId]/page";
-import { machine } from "os";
 
 const mockRecipeDetails: RecipeDetails = {
     id: 1,
