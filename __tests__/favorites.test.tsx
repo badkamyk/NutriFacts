@@ -1,8 +1,6 @@
 import FavoritePage from "../app/(product-related)/favorites/page";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { navTest } from "./nav.test";
-import { footerTest } from "./footer.test";
 
 describe("FavoritePage", () => {
     beforeEach(() => {
@@ -29,5 +27,3 @@ describe("FavoritePage", () => {
     });
 });
 
-navTest();
-footerTest();

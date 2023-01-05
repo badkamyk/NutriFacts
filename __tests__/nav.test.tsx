@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 
 const navLinksText = ["NutriFacts", "Home", "Nutrition analysis", "Meal planner", "Favorites", "Contact"];
 
-export const navTest = () => describe('Nav', () => {
+describe('Nav', () => {
     beforeEach(() => {
         render(<Nav/>)
     })
@@ -32,4 +32,3 @@ export const navTest = () => describe('Nav', () => {
     })
 })
 
-navTest()
