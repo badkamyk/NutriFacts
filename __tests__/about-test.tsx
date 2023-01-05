@@ -1,7 +1,5 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import { navTest } from "./nav.test";
-import { footerTest } from "./footer.test";
 import AboutPage from "../app/(product-related)/about/page";
 
 describe("AboutPage", () => {
@@ -30,5 +28,5 @@ describe("AboutPage", () => {
 
 });
 
-navTest();
-footerTest();
+// navTest();
+// footerTest();

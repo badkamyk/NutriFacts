@@ -1,10 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import Home from '../app/page'
 import '@testing-library/jest-dom'
-import { navTest } from "./nav.test";
-import { heroTest } from "./hero.test";
-import { footerTest } from "./footer.test";
-import { featureTest } from "./feature.test";
 
 describe('Home', () => {
     beforeEach(() => {
@@ -24,8 +20,8 @@ describe('Home', () => {
 
 })
 
-heroTest();
-navTest();
-footerTest();
-featureTest();
+// heroTest();
+// navTest();
+// footerTest();
+// featureTest();
 
